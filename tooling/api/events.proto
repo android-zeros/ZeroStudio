@@ -1,0 +1,126 @@
+syntax = "proto3";
+
+package com.itsaky.androidide.tooling.proto;
+
+import "common.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+
+option java_package = "com.itsaky.androidide.tooling.proto";
+option java_multiple_files = true;
+
+message ProgressEvent {
+    int64 event_time = 1;
+    string display_name = 2;
+    OperationDescriptor descriptor = 3;
+
+    oneof result {
+        SuccessResult success_result = 4;
+        FailureResult failure_result = 5;
+        SkippedResult skipped_result = 6;
+    }
+}
+
+message OperationDescriptor {
+    string name = 1;
+    string display_name = 2;
+    string parent_id = 3;
+    string id = 4;
+}
+
+message SuccessResult {
+    int64 start_time = 1;
+    int64 end_time = 2;
+}
+
+message FailureResult {
+    int64 start_time = 1;
+    int64 end_time = 2;
+    repeated Failure failures = 3;
+}
+
+message SkippedResult {
+    int64 start_time = 1;
+    int64 end_time = 2;
+}
+
+message Problem {
+    ProblemDefinition definition = 1;
+    ContextualLabel contextual_label = 2;
+    Details details = 3;
+    repeated Location origin_locations = 4;
+    repeated Location contextual_locations = 5;
+    repeated Solution solutions = 6;
+    AdditionalData additional_data = 7;
+    Failure failure = 8;
+}
+
+message ProblemDefinition {
+    ProblemId id = 1;
+    Severity severity = 2;
+    DocumentationLink documentation_link = 3;
+}
+
+message ProblemId {
+    string name = 1;
+    string display_name = 2;
+    ProblemGroup group = 3;
+}
+
+message ProblemGroup {
+    string name = 1;
+    string display_name = 2;
+    ProblemGroup parent = 3;
+}
+
+enum Severity {
+    SEVERITY_ADVICE = 0;
+    SEVERITY_WARNING = 1;
+    SEVERITY_ERROR = 2;
+}
+
+message DocumentationLink {
+    string url = 1;
+}
+
+message Solution {
+    string solution_text = 1;
+}
+
+message Details {
+    string details_text = 1;
+}
+
+message ContextualLabel {
+    string contextual_label = 1;
+}
+
+message AdditionalData {
+    map<string, string> data = 1;
+    google.protobuf.Any custom_data = 2;
+}
+
+message Location {
+    oneof location_type {
+        FileLocation file_location = 1;
+        LineInFileLocation line_in_file_location = 2;
+        OffsetInFileLocation offset_in_file_location = 3;
+        TaskPathLocation task_path_location = 4;
+        PluginIdLocation plugin_id_location = 5;
+    }
+}
+
+message FileLocation { string path = 1; }
+message LineInFileLocation {
+    string path = 1;
+    int32 line = 2;
+    int32 column = 3;
+    int32 length = 4;
+}
+message OffsetInFileLocation {
+    string path = 1;
+    int32 offset = 2;
+    int32 length = 3;
+}
+message TaskPathLocation { string build_tree_path = 1; }
+message PluginIdLocation { string plugin_id = 1; }

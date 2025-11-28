@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
+    android:orientation="vertical">
+
+    <!-- 顶部 Scope 切换条 (水平滚动) -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:fadingEdge="horizontal"
+        android:requiresFadingEdge="horizontal"
+        android:fadingEdgeLength="24dp">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/scopeTabs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:selectionRequired="true"
+            app:chipSpacingHorizontal="8dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/scopeAll"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="In Project"
+                android:checked="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/scopeModule"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:text="Module"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipIcon="@drawable/ic_module"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/scopeProject"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:text="Project"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipIcon="@drawable/ic_folder"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/scopeDirectory"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:text="Directory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipIcon="@drawable/ic_folder"/>
+            
+            <com.google.android.material.chip.Chip
+                android:id="@+id/scopeFile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:text="File" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/scopeScope"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:text="Scope"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:closeIconVisible="true"
+                app:closeIcon="@drawable/ic_arrow_drop_down" />
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="8dp">
+
+        <!-- 搜索框与确认按钮行 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="top">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <!-- 搜索输入 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/searchLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.AndroidIDE.TextInputLayout.Dense"
+                    app:startIconDrawable="@drawable/ic_search">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Text to find"
+                        android:imeOptions="actionSearch"
+                        android:inputType="textNoSuggestions"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- 替换输入 (默认隐藏) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputReplaceContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone"
+                    style="@style/Widget.AndroidIDE.TextInputLayout.Dense"
+                    app:startIconDrawable="@drawable/ic_replace">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputReplace"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Replace with"
+                        android:inputType="textNoSuggestions"
+                        android:singleLine="true"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <!-- 确认搜索按钮 (图标) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDoSearch"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                app:icon="@drawable/ic_search"
+                app:iconSize="24dp"
+                android:tooltipText="Find" />
+
+        </LinearLayout>
+
+        <!-- 选项工具栏 (Regex, Case, Replace Toggle, File Mask) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
+
+            <!-- 匹配选项组 -->
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/toggleFilters"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleSelection="false"
+                app:selectionRequired="false">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMatchCase"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="48dp"
+                    android:layout_height="40dp"
+                    android:text="Cc"
+                    android:textSize="12sp"
+                    android:tooltipText="Match Case"
+                    android:padding="0dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnWords"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="48dp"
+                    android:layout_height="40dp"
+                    android:text="W"
+                    android:textSize="12sp"
+                    android:tooltipText="Whole Words"
+                    android:padding="0dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRegex"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="48dp"
+                    android:layout_height="40dp"
+                    android:text=".*"
+                    android:textSize="12sp"
+                    android:tooltipText="Regex"
+                    android:padding="0dp"/>
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+            <!-- 文件掩码 (Spinner) -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="end">
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="File mask:"
+                    android:textSize="10sp"
+                    android:textColor="?attr/colorOutline"/>
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinnerFileMask"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:background="@null"
+                    android:spinnerMode="dropdown"
+                    android:minWidth="80dp"/>
+            </LinearLayout>
+
+            <!-- 替换模式切换按钮 -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnToggleReplace"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                app:icon="@drawable/ic_find_replace"
+                app:iconTint="?attr/colorOnSurfaceVariant"
+                android:tooltipText="Toggle Replace" />
+
+        </LinearLayout>
+        
+        <!-- 状态栏和排除设置 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="4dp">
+            
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:textColor="?attr/colorOutline"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="Ready"/>
+
+            <TextView
+                android:id="@+id/btnExclude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Exclude..."
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorPrimary"
+                android:background="?attr/selectableItemBackground"
+                android:padding="4dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 进度条 -->
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:indeterminate="true"
+        android:visibility="invisible"/>
+
+    <!-- 结果列表 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp"
+        android:scrollbars="vertical"/>
+
+</LinearLayout>

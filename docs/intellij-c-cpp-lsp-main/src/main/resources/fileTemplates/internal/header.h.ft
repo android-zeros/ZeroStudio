@@ -1,0 +1,7 @@
+#set( $macros = $NAME.toUpperCase().replace(".", "_").replace(" ", "_") + '_H' )
+#[[#ifndef]]# $macros
+#[[#define]]# $macros
+
+
+
+#[[#endif]]# // $macros

@@ -1,0 +1,428 @@
+#!/bin/bash
+
+#================================================================
+#               Gitu - The Ultimate Git Helper
+#================================================================
+#
+#   一个懂你的 Git 助手，支持交互菜单、智能交互CLI、直接CLI三种模式，
+#   内置多语言和命令别名，并能代理所有原生 Git 命令。
+#   @author：android_zero    github：https://github.com/android-zeros
+#
+#================================================================
+
+# --- 脚本配置区 ---
+# 1. 仓库信息
+SSH_REMOTE_URL="git@github.com:android-zeros/ZeroStudio.git"
+HTTP_REMOTE_URL="https://github.com/android-zeros/ZeroStudio.git"
+DEFAULT_MAIN_BRANCH="ZeroStudio-devs"
+DEFAULT_REMOTE_NAME="origin"
+
+# 2. 默认语言设置 (zh: 中文, en: English)
+DEFAULT_LANG="zh"
+
+# --- 颜色定义 ---
+C_RESET='\033[0m'; C_RED='\033[0;31m'; C_GREEN='\033[0;32m'; C_YELLOW='\033[0;33m';
+C_BLUE='\033[0;34m'; C_CYAN='\033[0;36m'; C_BOLD='\033[1m';
+
+# --- 多语言文本 ---
+declare -A TEXT_EN
+declare -A TEXT_ZH
+
+# English Texts
+TEXT_EN=(
+    [err_not_git_repo]="Error: Not a Git repository. Please initialize with 'init' command or menu option [8]."
+    [warn_repo_exists]="Warning: .git directory already exists. No need to re-initialize."
+    [init_start]="Initializing new Git repository..."
+    [init_done]="Repository initialized. Main branch set to '%s'."
+    [init_remote_add]="Adding remote '%s' (using SSH by default)..."
+    [init_remote_done]="Remote repository setup complete."
+    [switch_proto_prompt]="Please select protocol to use:"
+    [switch_proto_ssh]="1) SSH (Recommended, uses SSH Key)"
+    [switch_proto_http]="2) HTTP (Requires username and Token)"
+    [prompt_choice]="Enter your choice: "
+    [switching_to_ssh]="Switching to SSH protocol..."
+    [switched_to_ssh]="Protocol switched to SSH."
+    [switching_to_http]="Switching to HTTP protocol..."
+    [prompt_github_user]="Enter your GitHub username: "
+    [prompt_github_token]="Enter your GitHub Personal Access Token (PAT): "
+    [switched_to_http]="Protocol switched to HTTP."
+    [warn_token_usage]="Note: Your Token is used for this setup only and is not stored."
+    [current_remote_urls]="Current remote URLs:"
+    [err_invalid_option]="Invalid option."
+    [current_branches]="Available branches:"
+    [prompt_branch_name]="Enter branch name to switch to or create: "
+    [err_branch_name_empty]="Branch name cannot be empty."
+    [switching_to_branch]="Switching to existing branch '%s'..."
+    [confirm_create_branch]="Branch '%s' does not exist. Create and switch to it? (y/N): "
+    [creating_branch]="Creating and switching to new branch '%s'..."
+    [op_cancelled]="Operation cancelled."
+    [current_branch_is]="Current branch is: %s"
+    [prompt_commit_msg]="Enter Commit Message: "
+    [err_commit_msg_empty]="Commit message cannot be empty! Operation cancelled."
+    [git_add]="=> git add ."
+    [git_commit]="=> git commit -m \"%s\""
+    [err_commit_failed]="Commit failed. There might be no changes to commit."
+    [prompt_force_push]="Force Push? This is a dangerous operation! (y/N): "
+    [warn_force_push]="WARNING: Performing a force push!"
+    [git_force_push]="=> git push -f %s %s"
+    [pushing_standard]="Performing a standard push..."
+    [git_push]="=> git push %s %s"
+    [push_success]="Push successful!"
+    [push_failed]="Push failed! Check remote permissions or network."
+    [pulling_from_remote]="Pulling updates from remote branch '%s'..."
+    [prompt_use_rebase]="Use --rebase mode? (y/N): "
+    [git_pull_rebase]="=> git pull --rebase %s %s"
+    [git_pull]="=> git pull %s %s"
+    [menu_main_title]="--- Gitu - The Ultimate Git Helper ---"
+    [menu_repo_path]="Repository: %s"
+    [menu_repo_branch]="Branch: %s"
+    [menu_common_ops]="Common Operations:"
+    [menu_push]="Add, Commit & Push"
+    [menu_branch]="Switch/Create Branch"
+    [menu_pull]="Pull from Remote"
+    [menu_setup_ops]="Setup & Config:"
+    [menu_init]="Initialize Repository"
+    [menu_protocol]="Switch Protocol"
+    [menu_exit]="Exit"
+    [help_title]="Gitu - The Ultimate Git Helper - Documentation"
+    [help_desc]="A smart Git helper with three operating modes."
+    [help_mode_1_title]="Mode 1: Interactive Menu (No arguments)"
+    [help_mode_1_desc]="A user-friendly menu for guided operations."
+    [help_mode_2_title]="Mode 2: Interactive CLI (Command without options)"
+    [help_mode_2_desc]="The script will ask you for necessary inputs step-by-step."
+    [help_mode_3_title]="Mode 3: Direct CLI (Command with options)"
+    [help_mode_3_desc]="Execute commands in one go, perfect for scripting and experts."
+    [help_usage]="Usage:"
+    [help_usage_interactive]="  %s"
+    [help_usage_interactive_cli]="  %s <command>"
+    [help_usage_direct_cli]="  %s <command> [options...]"
+    [help_cli_commands]="Helper Commands:"
+    [help_cli_push]="  p, push [-m <msg>] [-f]  - Add, commit, and push."
+    [help_cli_pull]="  pl, pull [-r]            - Pull from remote. -r for rebase."
+    [help_cli_commit]="  ci, commit [-m <msg>]    - A shortcut to add all and commit."
+    [help_cli_init]="  init                     - Initialize a new repository."
+    [help_aliases_title]="Git Command Aliases:"
+    [help_aliases_desc]="Use these short aliases instead of typing the full Git command."
+    [help_aliases_list]="  st (status), co (checkout), br (branch), a (add), log, diff, etc."
+    [help_examples]="Examples:"
+    [help_ex_1]="  %s p -m \"My feature\"    (Direct CLI)"
+    [help_ex_2]="  %s p                      (Interactive CLI, will ask for message)"
+    [help_ex_3]="  %s pl -r                  (Direct CLI)"
+    [help_ex_4]="  %s st                     (Alias for 'git status')"
+    [script_done]="Script finished. Goodbye!"
+)
+# Chinese Texts
+TEXT_ZH=(
+    [err_not_git_repo]="错误：当前不是一个 Git 仓库。请使用 'init' 命令或菜单选项 [8] 初始化。"
+    [warn_repo_exists]="警告：.git 目录已存在，无需重复初始化。"
+    [init_start]="正在初始化新的 Git 仓库..."
+    [init_done]="仓库初始化完成，主分支已设置为 '%s'。"
+    [init_remote_add]="正在添加远程仓库 '%s' (默认使用 SSH)..."
+    [init_remote_done]="远程仓库设置完成。"
+    [switch_proto_prompt]="请选择要使用的协议:"
+    [switch_proto_ssh]="1) SSH (推荐，使用 SSH 密钥)"
+    [switch_proto_http]="2) HTTP (需要用户名和令牌)"
+    [prompt_choice]="请输入选项: "
+    [switching_to_ssh]="正在切换到 SSH 协议..."
+    [switched_to_ssh]="协议已切换为 SSH。"
+    [switching_to_http]="正在切换到 HTTP 协议..."
+    [prompt_github_user]="请输入您的 GitHub 用户名: "
+    [prompt_github_token]="请输入您的 GitHub 个人访问令牌 (PAT): "
+    [switched_to_http]="协议已切换为 HTTP。"
+    [warn_token_usage]="注意：您的令牌仅用于本次设置，不会被存储。"
+    [current_remote_urls]="当前远程仓库 URL:"
+    [err_invalid_option]="无效的选项。"
+    [current_branches]="当前可用分支:"
+    [prompt_branch_name]="请输入要切换或创建的分支名: "
+    [err_branch_name_empty]="分支名不能为空。"
+    [switching_to_branch]="正在切换到已存在的分支 '%s'..."
+    [confirm_create_branch]="分支 '%s' 不存在。是否要创建并切换到该分支? (y/N): "
+    [creating_branch]="正在创建并切换到新分支 '%s'..."
+    [op_cancelled]="操作已取消。"
+    [current_branch_is]="当前分支是: %s"
+    [prompt_commit_msg]="请输入提交信息: "
+    [err_commit_msg_empty]="提交信息不能为空！操作已取消。"
+    [git_add]="=> git add ."
+    [git_commit]="=> git commit -m \"%s\""
+    [err_commit_failed]="提交失败，可能没有需要提交的更改。"
+    [prompt_force_push]="是否要强制推送 (Force Push)? 这很危险！(y/N): "
+    [warn_force_push]="警告：正在执行强制推送！"
+    [git_force_push]="=> git push -f %s %s"
+    [pushing_standard]="正在执行标准推送..."
+    [git_push]="=> git push %s %s"
+    [push_success]="推送成功！"
+    [push_failed]="推送失败！请检查远程权限或网络。"
+    [pulling_from_remote]="正在从远程分支 '%s' 拉取更新..."
+    [prompt_use_rebase]="是否使用 --rebase 模式? (y/N): "
+    [git_pull_rebase]="=> git pull --rebase %s %s"
+    [git_pull]="=> git pull %s %s"
+    [menu_main_title]="--- Gitu - 终极 Git 助手 ---"
+    [menu_repo_path]="仓库路径: %s"
+    [menu_repo_branch]="当前分支: %s"
+    [menu_common_ops]="常用操作:"
+    [menu_push]="添加、提交并推送"
+    [menu_branch]="切换/创建分支"
+    [menu_pull]="拉取远程更新"
+    [menu_setup_ops]="设置与配置:"
+    [menu_init]="初始化仓库"
+    [menu_protocol]="切换协议"
+    [menu_exit]="退出"
+    [help_title]="Gitu - 终极 Git 助手 - 帮助文档"
+    [help_desc]="一个智能的 Git 助手，支持三种操作模式。"
+    [help_mode_1_title]="模式一：交互式菜单 (无参数运行)"
+    [help_mode_1_desc]="提供用户友好的菜单，引导您完成操作。"
+    [help_mode_2_title]="模式二：交互式命令行 (仅输入命令，不带选项)"
+    [help_mode_2_desc]="脚本会一步步询问您必要的信息。"
+    [help_mode_3_title]="模式三：直接命令行 (命令 + 选项)"
+    [help_mode_3_desc]="一步到位执行命令，适合脚本和高级用户。"
+    [help_usage]="用法:"
+    [help_usage_interactive]="  %s"
+    [help_usage_interactive_cli]="  %s <命令>"
+    [help_usage_direct_cli]="  %s <命令> [选项...]"
+    [help_cli_commands]="助手命令:"
+    [help_cli_push]="  p, push [-m <信息>] [-f] - 添加、提交并推送。"
+    [help_cli_pull]="  pl, pull [-r]            - 从远程拉取。-r 代表使用 rebase。"
+    [help_cli_commit]="  ci, commit [-m <信息>]   - 快捷命令：add 所有文件并 commit。"
+    [help_cli_init]="  init                     - 初始化一个新的仓库。"
+    [help_aliases_title]="Git 命令别名:"
+    [help_aliases_desc]="使用这些简短的别名来代替完整的 Git 命令。"
+    [help_aliases_list]="  st (status), co (checkout), br (branch), a (add), log, diff 等等。"
+    [help_examples]="示例:"
+    [help_ex_1]="  %s p -m \"我的新功能\"  (直接命令行)"
+    [help_ex_2]="  %s p                    (交互式命令行, 会询问信息)"
+    [help_ex_3]="  %s pl -r                (直接命令行)"
+    [help_ex_4]="  %s st                   (等同于 'git status')"
+    [script_done]="脚本执行完毕。再见！"
+)
+
+# --- 辅助函数 ---
+_t() {
+    local key=$1; shift
+    local text
+    local formatted_string
+    if [[ "$DEFAULT_LANG" == "zh" ]]; then text=${TEXT_ZH[$key]}; else text=${TEXT_EN[$key]}; fi
+    
+    # 【修复】使用 printf -v var 的方式安全地格式化字符串到变量中
+    # 这可以避免参数中包含 '-' 导致的 printf 错误
+    if [[ $# -gt 0 ]]; then
+        printf -v formatted_string "$text" "$@"
+    else
+        formatted_string="$text"
+    fi
+    # 使用 echo -e 来打印最终结果，确保 ANSI 颜色代码被正确解释
+    echo -e "$formatted_string"
+}
+
+is_git_repo() {
+    if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then _t 'err_not_git_repo'; return 1; fi
+    return 0
+}
+print_separator() { echo -e "${C_BLUE}-----------------------------------------------------${C_RESET}"; }
+
+# --- 核心逻辑函数 ---
+
+do_init() {
+    if [ -d ".git" ]; then _t 'warn_repo_exists'; return; fi
+    _t 'init_start'
+    git init
+    git branch -M "$DEFAULT_MAIN_BRANCH"
+    _t 'init_done' "$DEFAULT_MAIN_BRANCH"
+    _t 'init_remote_add' "$DEFAULT_REMOTE_NAME"
+    git remote add "$DEFAULT_REMOTE_NAME" "$SSH_REMOTE_URL"
+    _t 'init_remote_done'
+    git remote -v
+}
+
+do_commit() {
+    is_git_repo || return 1
+    local commit_msg="$1"
+    if [ -z "$commit_msg" ]; then _t 'err_commit_msg_empty'; return 1; fi
+    echo -e "$(_t 'git_add')"
+    git add .
+    echo -e "$(_t 'git_commit' "$commit_msg")"
+    git commit -m "$commit_msg"
+    if [ $? -ne 0 ]; then _t 'err_commit_failed'; return 1; fi
+    return 0
+}
+
+do_push() {
+    is_git_repo || return 1
+    local commit_msg="$1"
+    local force_push="$2"
+    local current_branch
+    current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+    do_commit "$commit_msg" || return 1
+
+    if [[ "$force_push" == "true" ]]; then
+        echo -e "${C_RED}$(_t 'warn_force_push')${C_RESET}"
+        echo -e "$(_t 'git_force_push' "$DEFAULT_REMOTE_NAME" "$current_branch")"
+        git push -f "$DEFAULT_REMOTE_NAME" "$current_branch"
+    else
+        _t 'pushing_standard'
+        echo -e "$(_t 'git_push' "$DEFAULT_REMOTE_NAME" "$current_branch")"
+        git push "$DEFAULT_REMOTE_NAME" "$current_branch"
+    fi
+    if [ $? -eq 0 ]; then _t 'push_success'; else _t 'push_failed'; fi
+}
+
+do_pull() {
+    is_git_repo || return 1
+    local use_rebase="$1"
+    local current_branch
+    current_branch=$(git rev-parse --abbrev-ref HEAD)
+    _t 'pulling_from_remote' "$current_branch"
+    if [[ "$use_rebase" == "true" ]]; then
+        echo -e "$(_t 'git_pull_rebase' "$DEFAULT_REMOTE_NAME" "$current_branch")"
+        git pull --rebase "$DEFAULT_REMOTE_NAME" "$current_branch"
+    else
+        echo -e "$(_t 'git_pull' "$DEFAULT_REMOTE_NAME" "$current_branch")"
+        git pull "$DEFAULT_REMOTE_NAME" "$current_branch"
+    fi
+}
+
+# --- 交互式命令行函数 ---
+
+cli_interactive_push() {
+    is_git_repo || return
+    local current_branch; current_branch=$(git rev-parse --abbrev-ref HEAD)
+    _t 'current_branch_is' "$current_branch"
+    
+    local commit_msg; read -p "$(_t 'prompt_commit_msg')" commit_msg
+    if [ -z "$commit_msg" ]; then _t 'err_commit_msg_empty'; return; fi
+
+    local force_push="false"; read -p "$(_t 'prompt_force_push')" force_choice
+    if [[ "$force_choice" =~ ^[Yy]$ ]]; then force_push="true"; fi
+
+    do_push "$commit_msg" "$force_push"
+}
+
+cli_interactive_pull() {
+    is_git_repo || return
+    local use_rebase="false"; read -p "$(_t 'prompt_use_rebase')" rebase_choice
+    if [[ "$rebase_choice" =~ ^[Yy]$ ]]; then use_rebase="true"; fi
+    do_pull "$use_rebase"
+}
+
+cli_interactive_commit() {
+    is_git_repo || return
+    local commit_msg; read -p "$(_t 'prompt_commit_msg')" commit_msg
+    do_commit "$commit_msg"
+}
+
+# --- 交互式菜单函数 ---
+
+interactive_switch_protocol() {
+    is_git_repo || return
+    _t 'switch_proto_prompt'; _t 'switch_proto_ssh'; _t 'switch_proto_http'
+    read -p "$(_t 'prompt_choice')" choice
+    case $choice in
+        1)
+            _t 'switching_to_ssh'; git remote set-url "$DEFAULT_REMOTE_NAME" "$SSH_REMOTE_URL"; _t 'switched_to_ssh' ;;
+        2)
+            _t 'switching_to_http'
+            read -p "$(_t 'prompt_github_user')" username
+            read -s -p "$(_t 'prompt_github_token')" token; echo ""
+            local auth_http_url; auth_http_url=$(echo "$HTTP_REMOTE_URL" | sed "s|https://|https://${username}:${token}@|")
+            git remote set-url "$DEFAULT_REMOTE_NAME" "$auth_http_url"
+            _t 'switched_to_http'; _t 'warn_token_usage' ;;
+        *) _t 'err_invalid_option' ;;
+    esac
+    _t 'current_remote_urls'; git remote -v
+}
+
+interactive_switch_branch() {
+    is_git_repo || return
+    _t 'current_branches'; git branch; echo ""
+    read -p "$(_t 'prompt_branch_name')" branch_name
+    if [ -z "$branch_name" ]; then _t 'err_branch_name_empty'; return; fi
+    if git rev-parse --verify "$branch_name" > /dev/null 2>&1; then
+        _t 'switching_to_branch' "$branch_name"; git checkout "$branch_name"
+    else
+        read -p "$(_t 'confirm_create_branch' "$branch_name")" create_choice
+        if [[ "$create_choice" =~ ^[Yy]$ ]]; then _t 'creating_branch' "$branch_name"; git checkout -b "$branch_name"; else _t 'op_cancelled'; fi
+    fi
+}
+
+main_menu() {
+    while true; do
+        local current_branch; current_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo 'N/A')
+        echo ""; echo -e "${C_BOLD}${C_BLUE}$(_t 'menu_main_title')${C_RESET}"
+        _t 'menu_repo_path' "$(pwd)"; _t 'menu_repo_branch' "$current_branch"; print_separator
+        echo -e "  ${C_BOLD}$(_t 'menu_common_ops')${C_RESET}"
+        echo -e "  1. ${C_GREEN}$(_t 'menu_push')${C_RESET}"
+        echo -e "  2. ${C_CYAN}$(_t 'menu_branch')${C_RESET}"
+        echo -e "  3. ${C_CYAN}$(_t 'menu_pull')${C_RESET}"
+        echo -e "\n  ${C_BOLD}$(_t 'menu_setup_ops')${C_RESET}"
+        echo -e "  8. ${C_YELLOW}$(_t 'menu_init')${C_RESET}"
+        echo -e "  9. ${C_YELLOW}$(_t 'menu_protocol')${C_RESET}"
+        echo -e "  0. ${C_RED}$(_t 'menu_exit')${C_RESET}"; print_separator
+        read -p "$(_t 'prompt_choice')" main_choice
+        case $main_choice in
+            1) cli_interactive_push ;;
+            2) interactive_switch_branch ;;
+            3) cli_interactive_pull ;;
+            8) do_init ;;
+            9) interactive_switch_protocol ;;
+            0) break ;;
+            *) _t 'err_invalid_option' ;;
+        esac
+    done
+}
+
+# --- 帮助与主入口 ---
+
+show_help() {
+    local script_name; script_name=$(basename "$0")
+    echo -e "${C_BOLD}${C_GREEN}$(_t 'help_title')${C_RESET}"; print_separator
+    _t 'help_desc'
+    echo -e "\n${C_BOLD}${C_YELLOW}$(_t 'help_usage')${C_RESET}"
+    echo -e "${C_CYAN}$(_t 'help_mode_1_title')${C_RESET}"; _t 'help_mode_1_desc'; _t 'help_usage_interactive' "$script_name"
+    echo -e "${C_CYAN}$(_t 'help_mode_2_title')${C_RESET}"; _t 'help_mode_2_desc'; _t 'help_usage_interactive_cli' "$script_name"
+    echo -e "${C_CYAN}$(_t 'help_mode_3_title')${C_RESET}"; _t 'help_mode_3_desc'; _t 'help_usage_direct_cli' "$script_name"
+    echo -e "\n${C_BOLD}${C_YELLOW}$(_t 'help_cli_commands')${C_RESET}"
+    _t 'help_cli_push'; _t 'help_cli_pull'; _t 'help_cli_commit'; _t 'help_cli_init'
+    echo -e "\n${C_BOLD}${C_YELLOW}$(_t 'help_aliases_title')${C_RESET}"
+    _t 'help_aliases_desc'; echo -e "${C_GREEN}$(_t 'help_aliases_list')${C_RESET}"
+    echo -e "\n${C_BOLD}${C_YELLOW}$(_t 'help_examples')${C_RESET}"
+    _t 'help_ex_1' "$script_name"; _t 'help_ex_2' "$script_name"; _t 'help_ex_3' "$script_name"; _t 'help_ex_4' "$script_name"
+}
+
+# --- 脚本主入口 ---
+
+# 模式一：没有参数，进入交互菜单
+if [ "$#" -eq 0 ]; then
+    main_menu; _t 'script_done'; exit 0
+fi
+
+COMMAND=$1; shift
+case "$COMMAND" in
+    p|push)
+        commit_message=""; force_push="false"
+        while [[ "$#" -gt 0 ]]; do
+            case "$1" in
+                -m|--message) commit_message="$2"; shift 2 ;;
+                -f|--force) force_push="true"; shift 1 ;;
+                *) _t 'err_invalid_option'; show_help; exit 1 ;;
+            esac
+        done
+        if [ -z "$commit_message" ]; then cli_interactive_push; else do_push "$commit_message" "$force_push"; fi ;;
+    pl|pull)
+        use_rebase="false"
+        if [[ "$1" == "-r" || "$1" == "--rebase" ]]; then use_rebase="true"; fi
+        if [ "$#" -gt 1 ]; then _t 'err_invalid_option'; show_help; exit 1; fi # pull命令只接受最多一个参数
+        do_pull "$use_rebase" ;;
+    ci|commit)
+        commit_message=""
+        while [[ "$#" -gt 0 ]]; do case "$1" in -m|--message) commit_message="$2"; shift 2;; *) _t 'err_invalid_option'; show_help; exit 1 ;; esac; done
+        if [ -z "$commit_message" ]; then cli_interactive_commit; else do_commit "$commit_message"; fi ;;
+    init)
+        do_init ;;
+    help|-h|--help)
+        show_help ;;
+    # 别名和原生Git命令代理
+    st|status|co|checkout|br|branch|a|add|log|diff|remote|config|reset|rebase|merge|fetch)
+        echo -e "${C_YELLOW}--> git $COMMAND $@${C_RESET}"; git "$COMMAND" "$@" ;;
+    *)
+        echo -e "${C_YELLOW}--> git $COMMAND $@${C_RESET}"; git "$COMMAND" "$@" ;;
+esac

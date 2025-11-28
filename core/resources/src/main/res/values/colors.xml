@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!--  other colors-->
+  <color name="primaryColor">#121212</color>
+  <color name="primaryIconColor">#ffffff</color>
+  <color name="rippleHighlightColor">#85121212</color>
+
+  <color name="color_success">@color/green_500</color>
+  <color name="color_warning">#ff9800</color>
+  <color name="color_error">#f44336</color>
+
+  <color name="diagnostic_error">@color/color_error</color>
+  <color name="diagnostic_warning">@color/color_warning</color>
+
+  <color name="green_500">#4caf50</color>
+  <color name="color_transparent">#00000000</color>
+
+  <color name="color_picker_default_color">#f44336</color>
+
+  <color name="splash_bg">@android:color/white</color>
+  <color name="splash_icon_tint">@android:color/black</color>
+  
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+   <!-- 半透明黄色/蓝色背景，用于高亮搜索匹配的文字 -->
+    <color name="search_highlight_bg">#4DFFEB3B</color>
+    <!-- 匹配文字颜色，通常跟随主题，但如果背景深可以强制白色 -->
+    <color name="search_highlight_fg">?attr/colorOnSurface</color>
+
+</resources>

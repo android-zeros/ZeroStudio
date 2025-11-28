@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package com.itsaky.androidide.tooling.proto;
+
+option java_package = "com.itsaky.androidide.tooling.proto";
+option java_multiple_files = true;
+
+// 对应 File，只传输路径字符串
+message FileRef {
+    string path = 1;
+}
+
+// 对应 ProjectIdentifier
+message ProjectIdentifier {
+    BuildIdentifier build_identifier = 1;
+    string project_path = 2;
+}
+
+// 对应 BuildIdentifier
+message BuildIdentifier {
+    FileRef root_dir = 1;
+}
+
+// 对应 GradleTask
+message GradleTask {
+    string name = 1;
+    string description = 2;
+    string group = 3;
+    string path = 4;
+    string display_name = 5;
+    bool is_public = 6;
+    string project_path = 7;
+}
+
+// 对应 Failure DTO
+message Failure {
+    string message = 1;
+    string description = 2;
+    repeated Failure causes = 3;
+    // `Problem` 消息将在 `events.proto` 中定义
+    repeated Problem problems = 4;
+
+    // 测试失败的特定字段
+    string class_name = 5;
+    string stacktrace = 6;
+    string expected = 7;
+    string actual = 8;
+    bytes expected_content = 9;
+    bytes actual_content = 10;
+}

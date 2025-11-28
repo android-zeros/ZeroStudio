@@ -1,0 +1,11 @@
+#set( $macros = $NAME.toUpperCase().replace(".", "_").replace(" ", "_") + '_H' )
+#[[#ifndef]]# $macros
+#[[#define]]# $macros
+
+class $NAME {
+public:
+	$NAME();
+	virtual ~$NAME();
+};
+
+#[[#endif]]# // $macros

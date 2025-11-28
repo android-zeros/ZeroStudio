@@ -1,0 +1,178 @@
+<idea-plugin require-restart="true">
+    <id>ru.zdevs.intellij-c-cpp-lsp</id>
+    <name>C/C++ Project (LSP)</name>
+    <category>Languages</category>
+    <vendor>Ant-ON</vendor>
+    <description><![CDATA[
+    Implementation C/C++ language support based on clangd LSP server for IntelliJ. It's based on LSP4J plugin.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.redhat.devtools.lsp4ij</depends>
+    <depends>org.jetbrains.plugins.textmate</depends>
+
+    <!-- LSP configuration -->
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType
+                name="clangd"
+                implementationClass="ru.zdevs.intellij.c.lang.ClangdFileType"
+                language="clangd"
+                extensions="c;cpp;h;hpp;cc;S;s;asm" />
+        <lang.substitutor
+                language="clangd"
+                order="first"
+                implementationClass="ru.zdevs.intellij.c.lang.ClangdLanguageSubstitutor"/>
+
+        <!-- TextMate: code highlighter
+        <editorHighlighterProvider
+                filetype="clangd"
+                implementationClass="org.jetbrains.plugins.textmate.language.syntax.highlighting.TextMateEditorHighlighterProvider"/>
+        <lang.syntaxHighlighterFactory
+                language="clangd"
+                implementationClass="org.jetbrains.plugins.textmate.language.syntax.highlighting.TextMateSyntaxHighlighterFactory"/>
+        -->
+
+        <!-- TextMate: functions
+        <braceMatcher
+                filetype="clangd"
+                implementationClass="org.jetbrains.plugins.textmate.editor.TextMateBraceMatcher"/>
+        <lang.commenter
+                language="clangd"
+                implementationClass="org.jetbrains.plugins.textmate.editor.TextMateCommentProvider"/>
+        <spellchecker.support
+                language="clangd"
+                implementationClass="org.jetbrains.plugins.textmate.spellchecker.TextMateSpellingStrategy"/>
+        <completion.contributor
+                language="clangd"
+                implementationClass="org.jetbrains.plugins.textmate.editor.TextMateCompletionContributor"
+                order="last"/>
+        -->
+
+        <!-- Workaround for https://youtrack.jetbrains.com/issue/IJPL-159454 -->
+        <enterHandlerDelegate
+                id="LSPEditorImprovementsEnterBetweenBracesHandler"
+                implementation="ru.zdevs.intellij.c.workaround.EditorImprovementsEnterBetweenBracesHandler"
+                order="first, before EnterBetweenBracesHandler, before LSPServerSideOnTypeFormattingEnterHandler"/>
+
+        <!-- Folding code range -->
+        <lang.foldingBuilder
+                language="clangd"
+                implementationClass="com.redhat.devtools.lsp4ij.features.foldingRange.LSPFoldingRangeBuilder"
+                order="first"/>
+
+        <!-- Code block providers -->
+        <codeBlockProvider
+                language="clangd"
+                implementationClass="com.redhat.devtools.lsp4ij.features.codeBlockProvider.LSPCodeBlockProvider"
+                order="first"/>
+
+        <!-- Document Symbol -->
+        <lang.psiStructureViewFactory
+                language="clangd"
+                order="first"
+                implementationClass="com.redhat.devtools.lsp4ij.features.documentSymbol.LSPDocumentSymbolStructureViewFactory"/>
+
+        <!-- Signature Help -->
+        <codeInsight.parameterInfo
+                language="clangd"
+                implementationClass="com.redhat.devtools.lsp4ij.features.signatureHelp.LSPParameterInfoHandler"/>
+
+        <!-- Call Hierarchy -->
+        <callHierarchyProvider
+                language="clangd"
+                implementationClass="com.redhat.devtools.lsp4ij.features.callHierarchy.LSPCallHierarchyProvider" />
+
+        <!-- Type Hierarchy -->
+        <typeHierarchyProvider
+                language="clangd"
+                implementationClass="com.redhat.devtools.lsp4ij.features.typeHierarchy.LSPTypeHierarchyProvider" />
+
+        <todoIndexer
+                filetype="clangd"
+                implementationClass="com.intellij.psi.impl.cache.impl.todo.PlainTextTodoIndexer"/>
+        <idIndexer
+                filetype="clangd"
+                implementationClass="com.intellij.psi.impl.cache.impl.id.PlainTextIdIndexer"/>
+
+        <notificationGroup
+                id="C/C++ Clangd LSP"
+                displayType="BALLOON"/>
+    </extensions>
+
+    <!-- LSP Service configuration -->
+    <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
+        <server
+                id="clangdLanguageServer"
+                name="C/C++ Clangd LSP"
+                factoryClass="ru.zdevs.intellij.c.clangd.ClangdLanguageServerFactory">
+            <description><![CDATA[
+            Clangd Language Server
+            ]]></description>
+        </server>
+
+        <languageMapping
+                language="clangd"
+                serverId="clangdLanguageServer"/>
+        <languageMapping
+                language="clangd"
+                serverId="clangdLanguageServer"
+                languageId="clangd"/>
+
+        <fileNamePatternMapping
+                patterns="*.c;*.cpp;*.cc;*.h;*.hpp"
+                serverId="clangdLanguageServer"
+                languageId="clangd"/>
+    </extensions>
+
+    <!-- Debugger -->
+    <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
+        <debugAdapterServer
+                id="lldbDAPServer"
+                name="C/C++ LLDB"
+                factoryClass="ru.zdevs.intellij.c.debug.LLDBDebugAdapterDescriptorFactory">
+            <description><![CDATA[
+            LLDB Debug Adapter Server
+            ]]></description>
+        </debugAdapterServer>
+        <debugAdapterServer
+                id="gdbDAPServer"
+                name="C/C++ GDB"
+                factoryClass="ru.zdevs.intellij.c.debug.GDBDebugAdapterDescriptorFactory">
+            <description><![CDATA[
+            GDB Debug Adapter Server
+            ]]></description>
+        </debugAdapterServer>
+    </extensions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <configurationType implementation="ru.zdevs.intellij.c.debug.CRunConfigurationType"/>
+    </extensions>
+
+    <!-- Project builder -->
+    <extensions defaultExtensionNs="com.intellij">
+        <projectTaskRunner implementation="ru.zdevs.intellij.c.build.CBuildProjectTaskRunner"/>
+
+        <moduleService serviceImplementation="ru.zdevs.intellij.c.project.module.CModuleSettings"/>
+        <moduleConfigurationEditorProvider
+                implementation="ru.zdevs.intellij.c.project.module.CModuleConfigurationEditorProvider"/>
+    </extensions>
+
+    <!-- Project structure -->
+    <extensions defaultExtensionNs="com.intellij">
+        <fileIconProvider
+                id="CFileIconProvider"
+                implementation="ru.zdevs.intellij.c.project.CFileIconProvider"/>
+        <applicationService serviceImplementation="ru.zdevs.intellij.c.project.CPluginSettings"/>
+        <newProjectWizard.languageGenerator implementation="ru.zdevs.intellij.c.project.CLanguageNewProjectWizard"/>
+        <treeStructureProvider implementation="ru.zdevs.intellij.c.project.CStructureProvider"/>
+    </extensions>
+
+    <actions>
+        <action
+                id="СActionNewFile"
+                class="ru.zdevs.intellij.c.project.action.CFileTemplateAction"
+                text="C/C++ File">
+            <add-to-group group-id="NewGroup" anchor="before" relative-to-action="NewFile"/>
+        </action>
+    </actions>
+</idea-plugin>

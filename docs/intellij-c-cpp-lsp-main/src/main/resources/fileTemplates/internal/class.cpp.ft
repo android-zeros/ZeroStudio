@@ -1,0 +1,9 @@
+#[[#include "]]#$NAME#[[.h"]]#
+
+$NAME::$NAME() {
+	// TODO Auto-generated constructor stub
+}
+
+$NAME::~$NAME() {
+	// TODO Auto-generated destructor stub
+}

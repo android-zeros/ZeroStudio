@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  This file is part of AndroidIDE.
+  ~
+  ~  AndroidIDE is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  AndroidIDE is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU General Public License
+  ~   along with AndroidIDE.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+
+  <string name="msg_directory_absolute_path">%1$s Direktoriýanyň doly ýoly: \"%2$s\"</string>
+
+  <!-- PackageUtils -->
+  <string name="error_app_not_installed_or_disabled_warning">%1$s (%2$s) programmasy gurnaldy ýa-da öçürildi.</string>
+  <string name="error_get_package_context_failed_title">Paket Kontekstini almak başartmady</string>
+  <string name="error_get_package_context_failed_message">"%1$s" paketi üçin paket kontekstini almak başartmady. Munuň sebäbi programma paketi gurnalmadyk ýa-da häzirki programma bilen dürli APK goly bar bolmagy mümkin.</string>
+  <string name="error_get_package_context_failed_help_url_message">Has giňişleýin maglumat üçin %1$s barlap görüň.</string>
+  <string name="error_get_component_state_failed">%1$s/%2$s komponentiniň ýagdaýyny almak başartmady</string>
+  <string name="error_enable_component_failed">%1$s/%2$s komponentini işledip bolmady</string>
+  <string name="error_disable_component_failed">%1$s/%2$s komponentini öçürip bolmady</string>
+
+  <!-- PermissionUtils -->
+  <string name="error_failed_to_request_permissions">%1$d haýyş kody bilen ygtyýarlyk soramak başartmady: %2$s</string>
+  <string name="error_attempted_to_check_for_permissions_not_requested" translatable="false">Programma manifestinde soralmadýan ygtyýarlyklary barlamaga synanyşdy: %1$s</string>
+  <string name="error_attempted_to_ask_for_permissions_not_requested">Programma manifestinde soralmadýan ygtyýarlyklary soramaga synanyşdy: %1$s</string>
+  <string name="error_has_not_requested_legacy_external_storage">"%1$s" paketi targetSdkVersion %2$d-e gönükdirilýär we android sdk %3$d-de işleýär, ýöne programma manifestinde requestLegacyExternalStorage-i true edip bellemändir</string>
+  <string name="msg_requires_dump_and_package_usage_stats_permissions">`DUMP` we `PACKAGE_USAGE_STATS` ygtyýarlyklaryny talap edýär</string>
+  <string name="error_display_over_other_apps_permission_not_granted">%1$s Android >= 10-da fonda işjeňlikleri we hyzmatlary başlatmak üçin "Beýleki programmalaryň üstünde görkezmek" ygtyýarlygyny talap edýär. Android Sazlamalary -> Programmalar -> %1$s -> Giňişleýin -> Beýleki programmalaryň üstünde çyzmak bölümlerinden beriň. Ygtyýarlygyň ady dürli enjamlarda dürli bolup biler, mysal üçin Xiaomi-de "Fonda işläp ýörkä galýan penjireleri görkezmek" diýlip atlandyrylýar, enjama degişli meseleler üçin https://dontkillmyapp.com salgysyny barlap görüň.</string>
+
+  <!-- TermuxPluginUtils -->
+  <string name="error_allow_external_apps_ungranted">%1$s `%2$s` faýlynda `allow-external-apps` häsiýetiniň `true` edip bellenilmegini talap edýär.</string>
+
+  <!-- ReportActivity -->
+  <string name="title_report_text">Hasabat Teksti</string>
+  <string name="msg_report_truncated">**Hasabat kesildi**\n\nHasabat bu ýerde görmek üçin gaty uly. Seçenekler menýusyndan (sag tarapdaky 3 nokat) `Faýla ýaz` opsiýasyny ulanyň we daşarky tekst redaktorynda görüň.\n\n##\n\n</string>
+
+  <!-- ShareUtils -->
+  <string name="title_share_with">Şular bilen paýlaş</string>
+  <string name="title_open_url_with">URL-i şular bilen aç</string>
+  <string name="msg_storage_permission_not_granted">Saklama ygtyýarlygy berilmedi.</string>
+  <string name="msg_file_saved_successfully">%1$s faýly \"%2$s\" salgysynda üstünlikli saklandy</string>
+
+  <!-- Shell -->
+  <string name="error_sending_sigkill_to_process" translatable="false">Ulanyjy tarapyndan haýyş edilende ýa-da android ýerine ýetiriş hyzmatyny öldürende prosesse SIGKILL iberilýär</string>
+  <string name="error_executable_unset" translatable="false">Shell buýrugy üçin "%1$s" ýerine ýetiriji bellenmedi</string>
+  <string name="error_execution_cancelled" translatable="false">Ýerine ýetiriş hyzmaty öldürilýändigi sebäpli ýerine ýetiriş ýatyryldy</string>
+  <string name="error_failed_to_execute_termux_session_command" translatable="false">"%1$s" termux sessiýa buýrugyny ýerine ýetirmek başartmady</string>
+  <string name="error_failed_to_execute_app_shell_command" translatable="false">"%1$s" programma shell buýrugyny ýerine ýetirmek başartmady</string>
+  <string name="error_exception_received_while_executing_app_shell_command" translatable="false">"%1$s" programma shell buýrugyny ýerine ýetirýärkä çykarylma alyndy.\n çykarylma: %2$s</string>
+
+
+  <!-- TermuxUtils -->
+  <string name="msg_report_issue">
+        Eger bu mesele barada habar bermek isleseňiz, onda onuň tekstini opsiýalar menýusyndan (sag tarapdaky 3 nokat) göçürip alyň we aşakdaky baglanyşyklaryň birinde mesele hökmünde ýerleşdiriň.
+        \n\nEger Termux programma ýykylma hasabatyny ýerleşdirýän bolsaňyz, onda ýykylma sebäp bolan zadyňyz we mümkin bolsa, ony nädip gaýtalamalygynyňyz barada jikme-jik maglumat beriň.
+        \n\nEger GitHub-da mesele ýerleşdirýän bolsaňyz, onda hasabatyň degişli bolan ammarynda ýerleşdiriň.
+        Göçürilen tekst ýa-da bu hasabatyň faýly däl-de, **(bölekleýin) suratlar** bilen açylan ýa-da iberilen e-poçtalar **awtonom ýagdaýda ýapylar/pozular**.
+        Islendik enjama degişli şahsy hasaplaýan ýa-da paýlaşmak islemeýän ýa-da mesele bilen baglanyşykly bolmadyk maglumatlary aýryp bilersiňiz.
+        \n\nBiz hiç hili hakerlik bilen baglanyşykly gurallar/skriptler üçin goldaw bermeýäris. E-poçta, GitHub ýa-da beýleki resmi termux jemgyýet forumlarynda olar barada berlen islendik sorag **awtonom ýagdaýda ýapylar/pozular** we hatda **wagtlaýyn ýa-da hemişelik** gadaganlyga hem sebäp bolup biler. Jikme-jik maglumat üçin %1$s/wiki/Hacking barlap görüň.</string>
+
+  <string name="msg_termux_app_required_by_app">%1$s programmasy tarapyndan termux buýruklaryny ýerine ýetirmek üçin ZeroStudio talap edilýär.</string>
+  <string name="error_termux_app_package_context_not_accessible">ZeroStudio programmasyna (paket konteksti) elýeterli däl.</string>
+  <string name="error_termux_prefix_dir_path_not_accessible">ZeroStudio programmasynyň $PREFIX direktoriýasyna %1$s programmasy tarapyndan elýeterli däl.
+        Munuň sebäbi ZeroStudio programmasyny gurnamadyk ýa-da sazlamadyk bolmagyňyz ýa-da
+        ZeroStudio programmasy we %1$s programmasy iki dürli çeşmeden iki programmany hem gurnamagy başardygyňyz sebäpli dürli APK gollarynyň bolmagy mümkin.
+        Şeýle hem ZeroStudio $PREFIX direktoriýasy "/data/data/com.itsaky.androidide/files/usr" ýok ýa-da okamak,
+        ýazmak we ýerine ýetirmek ygtyýarlyklary ýok bolmagy mümkin.</string>
+
+
+
+  <!-- Miscellaneous -->
+  <string name="action_yes" translatable="false">@string/yes</string>
+  <string name="action_no" translatable="false">@string/no</string>
+  <string name="action_copy" translatable="false">@string/copy</string>
+  <string name="action_share">Paýlaş</string>
+  <string name="action_cancel" translatable="false">@android:string/cancel</string>
+  <string name="action_save_to_file">Faýla Sakla</string>
+
+  <string name="msg_storage_permission_granted_on_request">Saklama ygtyýarlygy ulanyjy tarapyndan haýyşda berildi</string>
+  <string name="msg_storage_permission_not_granted_on_request">Saklama ygtyýarlygy ulanyjy tarapyndan haýyşda berilmedi</string>
+
+  <!-- Log Level -->
+  <string name="log_level_title">Log Derejesi</string>
+  <string name="log_level_off">Öçürilen</string>
+  <string name="log_level_normal">Adaty</string>
+  <string name="log_level_debug">Düzediş</string>
+  <string name="log_level_verbose">Giňişleýin</string>
+  <string name="log_level_unknown">*Näbelli*</string>
+  <string name="log_level_value">Logcat log derejesi \"%1$s\" edip bellendi</string>
+
+</resources>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorSurfaceContainerHigh"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="6dp">
+
+    <ImageView
+        android:id="@+id/fileIcon"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        tools:src="@drawable/ic_file_unknown"/>
+
+    <TextView
+        android:id="@+id/filePath"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        tools:text="MainActivity.java"
+        android:textStyle="bold"
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="14sp"/>
+
+    <!-- 灰色路径部分 -->
+    <TextView
+        android:id="@+id/fileDir"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="8dp"
+        tools:text="app/src/main/java/..."
+        android:textColor="?attr/colorOutline"
+        android:textSize="12sp"
+        android:ellipsize="middle"
+        android:singleLine="true"/>
+
+    <!-- 模块胶囊标签 -->
+    <TextView
+        android:id="@+id/moduleName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_capsule_outline"
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="1dp"
+        tools:text="app"
+        android:textColor="?attr/colorOutline"
+        android:textSize="10sp"
+        android:layout_marginEnd="8dp"/>
+
+    <!-- 匹配数徽章 -->
+    <TextView
+        android:id="@+id/matchCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="3"
+        android:background="@drawable/bg_circle_badge"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:minWidth="18dp"
+        android:minHeight="18dp"
+        android:paddingHorizontal="4dp"/>
+</LinearLayout>

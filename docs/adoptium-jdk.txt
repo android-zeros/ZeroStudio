@@ -1,0 +1,1 @@
+https://adoptium.net/zh-CN/temurin/releases?version=11

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/bg_item_ripple"
+    android:paddingVertical="2dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- 行号区 (固定宽度，右对齐) -->
+    <TextView
+        android:id="@+id/lineNumber"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:paddingEnd="12dp"
+        tools:text="12"
+        android:fontFamily="monospace"
+        android:textSize="12sp"
+        android:textColor="?attr/colorOutline"/>
+
+    <!-- 代码预览区 -->
+    <TextView
+        android:id="@+id/codePreview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:textSize="13sp"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        android:ellipsize="end"
+        android:maxLines="3"
+        tools:text="public void init() { ... }"/>
+
+</LinearLayout>

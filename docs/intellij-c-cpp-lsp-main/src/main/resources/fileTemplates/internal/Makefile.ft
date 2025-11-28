@@ -1,0 +1,31 @@
+TARGET  ?= $NAME
+
+TOOLCHAIN := $TOOLCHAIN
+#[[CXX := $(TOOLCHAIN)]]#$CXX
+#[[CC := $(TOOLCHAIN)]]#$CC
+#[[LD := $(TOOLCHAIN)]]#$LD
+#[[CFLAGS := -O0 -g
+CPPFLAGS := $(CFLAGS)
+LDFLAGS :=
+]]#
+SOURCES = $SOURCES
+#[[
+OBJS := $(SOURCES:.cpp=.o)
+OBJS := $(OBJS:.c=.o)
+OBJS := $(OBJS:%=obj/%)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(LD) $(LDFLAGS) $^ -o $@
+
+obj/%.o: %.c | obj
+	$(CC) -c $(CFLAGS) -c $< -o $@
+obj/%.o: %.cpp | obj
+	$(CXX) -c $(CFLAGS) -c $< -o $@
+obj:
+	mkdir $@
+
+clean:
+	rm -fr obj $(TARGET)
+]]#

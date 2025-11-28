@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+
+<!-- Data file tree fragment string -->
+<string name="msg_data_file_tree">Maglumat faýl agajy</string>
+<string name="select_directory_prompt">Baglamak üçin bukja saýlaň</string>
+<string name="select_directory_button">Mazmun tablisasyny saýlaň</string>
+<string name="error_loading_directory">Bukjany ýükläp bolmady, gaýtadan saýlaň (com.itsaky.androidide/data bukjasyny saýlaň).</string>
+ <string name="select_directory_button_text">Bukjany Saýlaň</string>
+ 
+  <!-- NewFileOrFolderAction 所需的字符串 -->
+    <string name="msg_activity_not_found">Activity kontekstini alyp bolmady.</string>
+    <string name="msg_unsupported_characters">Faýlyň adynda goldanylmaýan nyşanlar bar：%s</string>
+    <string name="msg_root_folder_not_found">Esasy bukja ýok ýa-da bukja däl：%s</string>
+    <string name="msg_folder_creation_exception">Bukjany döretmekde ýalňyşlyk boldy：%s</string>
+    <string name="msg_paste_successful">Göçürmek üstünlikli boldy.</string>
+    <string name="msg_clipboard_empty">Bufer boş.</string>
+    <string name="empty_history">Taryh boş.</string>
+    <string name="text_file">Faýl</string>
+    <string name="text_folder">Bukja</string>
+
+    <string name="checkbox_dots_to_slashes">Nokatlary "/" çyzyklar bilen çalşyrmaly (köp derejeli bukjalar üçin)</string>
+    <string name="msg_ui_component_not_found">Içki ýalňyşlyk: Talap edilýän UI komponenti düzüwde tapylmady. Programmanyň gurnalyşyny barlaň.</string>
+    <string name="dropdown_arrow_desc">Aşak gaýdýan ok</string>
+    <string name="remove_spaces_checkbox">Giriş gutusyndan boşluk nyşanyny aýyr</string>
+    <string name="file_folder_name">Bukjanyň ýa-da faýlyň ady</string>
+    <string name="folder_name2">Bukjanyň ady</string>
+    <string name="msg_folder_creation_failed_for_parent">Esasy bukja döredip bolmady：%s</string>
+    <string name="msg_can_contain_slashesfile">Adynda köp derejeli ýol döretmek üçin çyzyk(/), ýa-da paket adynyň ýoluny döretmek üçin nokat(.) bolup biler.</string>
+    <string name="msg_file_creation_exception">Faýl adaty bolmadyk ýagdaýda döredildi：%s</string>
+    <string name="radio_suffix_list">Goşulmalaryň sanawy</string>
+    <string name="radio_history_list">Taryh</string>
+    <string name="text_paste">Goýmak</string>
+    <string name="action_create_file_folder">Faýl/bukja döretmek</string>
+
+<!-- 代码编辑器Line操作与编辑相关menu action -->
+    <string name="edit">Redaktirlemek</string>
+    <string name="copy_line">Setiriň nusgasyny almak</string>
+    <string name="cut_line">Setiri kesmek</string>
+    <string name="delete_line">Setiri pozmak</string>
+    <string name="empty_line">Setiri boşatmak</string>
+    <string name="replace_line">Setiri çalşyrmak</string>
+    <string name="duplicate_line">Setiri gaýtalamak</string>
+    <string name="convert_uppercase">Uly harplara öwürmek</string>
+    <string name="convert_lowercase">Kiçi harplara öwürmek</string>
+    <string name="increase_indent">Indentasiýany artdyrmak</string>
+    <string name="decrease_indent">Indentasiýany azaltmak</string>
+    <string name="toggle_comment">Teswirlemegi açmak/ýapmak</string>
+    <string name="jump_to_line">Setire geçmek</string>
+    <string name="jump_to_line_title">Setire geçmek</string>
+    <string name="ok_button">OK</string>
+    <string name="cancel_button">Ýatyr</string>
+    <string name="enter_something_error">Bir zat giriziň</string>
+    <string name="value_out_of_range_error">Bahasy çäginden çykdy</string>
+    <string name="invalid_number_error">Nädogry san</string>
+    <string name="wrap_text">Teksti geçirmek</string>
+    <string name="java_to_kotlin">Java2Kotlin</string>
+    
+    
+ <string name="action_menu_edit_read_write_mode">Okamak/ýazmak tertibi</string>
+ <string name="action_menu_edit_previous_location">Öňki setir pozisiýasy</string>
+ <string name="action_menu_editnext_location">Indiki setir pozisiýasy</string>
+ <string name="action_format_code">Kody formatlamak</string>
+ <string name="action_show_snippets">Snippet goýmak…</string>
+ <string name="action_show_code_outline">Kod gurluşy</string>
+    <!-- <string name="action_intelligent_expand_selection">Akylly giňeltmek saýlawy</string> -->
+    <!-- <string name="action_shrink_selection">Kiçeltmek saýlawy</string> -->
+    <!-- <string name="action_add_cursor_above">Ýokarda kursor goşmak</string> -->
+    <!-- <string name="action_add_cursor_below">Aşakda kursor goşmak</string> -->
+    <!-- <string name="action_select_all_occurrences">Ähli gabat gelmeleri saýlamak</string> -->
+ 
+    
+    
+  <!-- ZeroStudio -->
+    <string name="app_name" translatable="false">ZeroStudio</string>
+    
+  <string name="copy" tools:override="true">Kopiýalamak</string>
+  <string name="terminal_more">Köpüräk…</string>
+  <string name="text_to_search">Gözlenmeli tekst</string>
+  <string name="about_option_email">Email</string>
+  <string name="about_option_website">Website</string>
+  <string name="about_footer_alternate" translatable="false">ZeroStudio v\u2022 %s</string>
+  <string name="about_footer">ZeroStudio %1$s %2$s üçin</string>
+  <string name="about_subtitle">Ýönekeý, Android üçin IDE</string>
+  <string name="msg_get_package_failed">Paket adyny çykarmak başartmady!</string>
+  <string name="msg_need_help">Eger ZeroStudio ulanmakda ýa-da Android programmalary gurmakda meseleler bilen ýüzbe-ýüz bolsaňyz, Telegram toparyna goşulyp, şol ýerde kömek sorap bilersiňiz.\n\nŞeýle hem, emaýil adresimize teklipleriňizi iberip bilersiňiz.</string>
+  <string name="title_github" translatable="false">GitHub</string>
+  <string name="need_help">Kömek gerekmi?</string>
+  <string name="ide_preferences">IDE sazlamalary</string>
+  <string name="discussions_on_telegram">Telegramda ara alyp maslahatlaşmalar</string>
+  <string name="official_tg_channel">QQ Topary</string>
+  <string name="msg_empty_view">Maglumat tapylmady</string>
+  <string name="title_terminal">Terminal</string>
+  <string name="reset">Tazeden başla</string>
+  <string name="app_logs">Programmanyň Gündelikleri</string>
+  <string name="ide_logs">IDE Gündelikleri</string>
+
+  <!-- LSP, Diagnostics & Completions -->
+  <string name="get_started">Başlalyň!</string>
+  <string name="msg_cannot_perform_fix">Çalt düzediş amala aşyryp bolmady</string>
+  <string name="msg_performing_actions">Kod hereketi amala aşyrylýar…</string>
+  <string name="msg_api_info_since">API %d-den bäri</string>
+  <string name="msg_api_info_removed">API %d-de aýryldy</string>
+  <string name="msg_api_info_deprecated">API %d-de köneldi</string>
+  <string name="msg_finding_references">Salgyly ýerleri gözleýär…</string>
+  <string name="msg_finding_definition">Kesgitlemäni gözleýär…</string>
+  <string name="msg_no_definition">Kesgitleme tapylmady</string>
+
+  <!-- Build Tools Installation -->
+  <string name="msg_no_references">Salgy tapylmady</string>
+  <string name="view_diags">Diagnostika</string>
+  <string name="title_installation_failed">Gurnama başa barmady</string>
+  <string name="msg_picked_isnt_dir">Saýlanan faýl papka däl!</string>
+  <string name="please_wait">Haýyş 1 minut garaşyň…</string>
+
+  <!-- Project Builder -->
+  <string name="title_unsupported_device">Goldanylmaýan Enjam</string>
+  <string name="msg_unsupported_device">Siz ZeroStudio-nyň %1$s görnüşini diňe %2$s üçin niýetlenen enjamda ulanýarsyňyz. Bu konfigurasiýa goldanylmaýar. ZeroStudio-nyň %2$s görnüşini gurnamagyňyzy haýyş edýäris.</string>
+  <string name="title_clear_output">Çykdaýjy arassala</string>
+  <string name="build_output">Gurnama çykdaýjysy</string>
+  <string name="quick_run_debug">Çalt işled</string>
+  <string name="msg_sync_needed">Gradle faýllary üýtgedildi. Baglylyklary we konfigurasiýalary sinhronlamak üçin taslamaňyzy täzeden gurmagyňyzy haýyş edýäris.</string>
+  <string name="preparing">Taýýarlanýar</string>
+  <string name="preparing_first">Taýýarlanýar. Ilkinji gurnama 10–15 minut çenli wagt alyp biler!</string>
+  <string name="msg_installing_gradlew">Gradle Wrapper elýeterli däl!\nBellenenini gurnaýarys. Zerur bolsa, Gradle v7.4 ýükleniler.</string>
+  <string name="run">Işlet</string>
+  <string name="gradle" translatable="false">Gradle</string>
+
+  <!-- Project -->
+  <string name="title_first_build">Ilkinji Gurnama</string>
+  <string name="msg_first_build">Bu, ZeroStudio-ny gurnanyňyzdan soň ilkinji gurnama. Gradle ähli baglylyklary we pluginleri ýükleýänligi sebäpli, ilkinji gurnama adatça wagt alýar. Bu proses takmynan 10–15 minut dowam edip biler. Emma bu doly siziň internet birikmäňize bagly.\n\nSabyrly bolmagyňyzy haýyş edýäris …</string>
+  <string name="create_project">Taslama döret</string>
+  <string name="minimum_sdk">Iň pes SDK</string>
+  <string name="new_project">Täze taslama</string>
+  <string name="package_name">Paket ady</string>
+  <string name="project_app_name">Programmanyň ady</string>
+  <string name="msg_create_new_project_greeting">Täze ajaýyp taslamaňyza başlaň!</string>
+  <string name="title_confirm_open_project">Soňky taslamany açmalymy?</string>
+  <string name="msg_confirm_open_project">Soňky açylan taslamany açmak isleýärsiňizmi? Soňky gezek açylan taslama:\n%s</string>
+  <string name="title_close_project">Bu taslamany ýap</string>
+  <string name="msg_opened_project_does_not_exist">Soňky açylan taslama ýok!</string>
+  <string name="msg_create_new_project">Täze taslama döret</string>
+  <string name="msg_open_existing_project">Bar bolan taslamany aç</string>
+  <string name="title_confirm_project_close">Taslamany ýap</string>
+
+  <!-- Templates -->
+  <string name="msg_confirm_project_close">Bu taslamany ýapmak isleýärsiňizmi? Taslama ýapylandan soň ähli işledilen Gradle daemonlary togtadylar.</string>
+  <string name="template_basic">Esasy taslama</string>
+  <string name="template_empty">Boş taslama</string>
+  <string name="template_navigation_drawer">Navigasiýa çekmejeli taslama</string>
+  <string name="template_compose" translatable="false">Jetpack Compose</string>
+  <string name="template_navigation_tabs">Aşaky Navigasiýa Aktiwligi</string>
+  <string name="template_tabs">Tably Aktiwlik</string>
+  <string name="template_no_activity">Aktiwlik-siz</string>
+  <string name="template_no_AndroidX">AndroidX-siz</string>
+
+  <!-- Files -->
+  <string name="save">Saklamak</string>
+  <string name="menu_find">Tap</string>
+  <string name="menu_find_file">Faýlda tap</string>
+  <string name="menu_find_project">Taslamada tap</string>
+  <string name="msg_search_modules">Modullarda gözle</string>
+  <string name="msg_no_modules">Taslamada modul tapylmady</string>
+  <string name="hint_find_project_filter">Faýl giňeltmelerini süzgüçle (hökmany däl)</string>
+  <string name="msg_find_project_filter">\'| \' bilen bölmek</string>
+  <string name="msg_empty_search_query">Haýyş, teksti giriziň</string>
+  <string name="msg_select_search_modules">Gözlemek üçin modullary saýlaň</string>
+  <string name="msg_searching_project">Taslamada gözlenýär, garaşyň…</string>
+  <string name="view_search_results">Gözleg netijeleri</string>
+  <string name="project_created_successfully">Taslama üstünlikli döredildi!</string>
+  <string name="project_creation_failed">Taslama döretmek başa barmady</string>
+  <string name="msg_folder_creation_failed">Papka döretmek başa barmady!</string>
+  <string name="msg_file_creation_failed">Faýl döretmek başa barmady!</string>
+  <string name="msg_layout_file_creation_failed">Düzüm faýlyny döretmek başa barmady!</string>
+  <string name="msg_folder_created">Papka üstünlikli döredildi!</string>
+  <string name="msg_file_created">Faýl üstünlikli döredildi!</string>
+  <string name="msg_folder_exists">Papka eýýäm bar!</string>
+  <string name="msg_file_exists">Faýl eýýäm bar!</string>
+  <string name="msg_layout_file_exists">Düzüm faýly eýýäm bar!</string>
+  <string name="msg_invalid_name">Nädogry at!</string>
+  <string name="text_create">Döret</string>
+  <string name="msg_can_contain_slashes">Eger ýolda Faýl bölüjisi (\'/ \') bar bolsa, onda zerur (ene) papkalar ýok bolsa dörediler.</string>
+  <string name="folder_name">Papkanyň ady</string>
+  <string name="file_name">Faýlyň ady</string>
+  <string name="new_name">Täze at</string>
+  <string name="new_file">Täze faýl</string>
+  <string name="create_auto_layout">Düzüm faýlyny döret</string>
+  <string name="new_java_class">Täze Java synpy</string>
+  <string name="new_xml_resource">Täze XML resursy</string>
+  <string name="new_folder">Täze papka</string>
+  <string name="title_confirm_delete">Pozmagy tassykla</string>
+  <string name="msg_confirm_delete">Pozmak isleýärsiňizmi:\n%s?</string>
+  <string name="copied">Üstünlikli kopiýalandy!</string>
+  <string name="msg_rename_file">Faýl/papka üçin täze at giriziň.</string>
+  <string name="renamed">Üstünlikli ady üýtgedildi!</string>
+  <string name="rename_failed">Faýlyň adyny üýtgedip bolmady!</string>
+  <string name="deleted">Üstünlikli pozuldy!</string>
+  <string name="delete_failed">Faýly pozup bolmady!</string>
+  <string name="copy_path">Ýoly kopiýala</string>
+  <string name="rename_file">Adyny üýtget</string>
+  <string name="delete_file">Poz</string>
+  <string name="action_closeAll">Ählisini ýap</string>
+  <string name="action_closeOthers">Beýlekileri ýap</string>
+  <string name="action_closeThis">Muny ýap</string>
+  <string name="all_saved">Ähli faýllar saklandy!</string>
+  <string name="save_failed">Faýllary saklamak başa barmady</string>
+  <string name="msg_newfile_dest">Barjak ýeri: %s/</string>
+  <string name="restype_drawable">Çyzylýan</string>
+  <string name="restype_layout">Düzüm</string>
+  <string name="restype_menu">Menýu</string>
+  <string name="restype_other">Başga</string>
+  <string name="classtype_class">Synp</string>
+  <string name="classtype_activity">Aktiwlik</string>
+  <string name="title_interface">Interfeýs</string>
+  <string name="classtype_enum">Sanaw</string>
+  <string name="msg_failed_list_files">Taslama faýllaryny sanamak başa barmady!</string>
+
+  <!-- Code Editor -->
+  <string name="open_with">Şu bilen aç...</string>
+
+  <string name="undo">Yza gaýtar</string>
+  <string name="redo">Öňe gaýtar</string>
+
+  <!-- Preferences -->
+  <string name="title_change_text_size">Redaktoryň şriftiniň ölçegi</string>
+  <string name="idepref_about_title">ZeroStudio barada</string>
+  <string name="idepref_build_clearCache_title">Gradle keşlerini arassala</string>
+  <string name="idepref_build_clearCache_summary">Gradle keş katalogy arassalaň. Bu Gradle tarapyndan ýüklenen ähli baglylyklary pozar. Zerur faýllar indiki gurnama wagtynda täzeden ýükleniler.</string>
+  <string name="idepref_build_customgradlecommands_title">Goşmaça Gradle buýruklary</string>
+  <string name="idepref_build_customgradlecommands_summary">Her bir wezipäni ýerine ýetirýän wagty goşuljak goşmaça buýruklary saýlaň</string>
+  <string name="idepref_editor_fontsize_title">Şriftiň ölçegi</string>
+  <string name="idepref_editor_fontsize_summary">Redaktoryň şriftiniň ölçegi</string>
+  <string name="idepref_editor_paintingflags_title">Çap edilmeýän boýag baýdaklary</string>
+  <string name="idepref_editor_paintingflags_summary">Redaktor tarapyndan haýsy çap edilmeýän nyşanlaryň çyzylmalydygyny saýlaň</string>
+  <string name="idepref_editor_word_wrap_title">Sözleri geçirmek</string>
+  <string name="idepref_editor_word_wrap_summary">Redaktoryň sözleri geçirmek mümkinçiligini ulanyň</string>
+  <string name="idepref_editor_use_magnifier_title">Ulaldyjyny işlediň</string>
+  <string name="idepref_editor_use_magnifier_summary">Redaktorda teksti saýlaýan wagtyňyz kursor pozisiýasyndaky teksti ulaldyň</string>
+  <string name="idepref_editor_title">Redaktor</string>
+  <string name="idepref_build_title">Gurnama &amp; Işlet</string>
+  <string name="title_open_projects">Soňky taslamany aç</string>
+  <string name="msg_open_projects">Bellenen bolsa, IDE soňky açylan taslamany ýatda saklar we indiki başlanda täzeden açylar.</string>
+  <string name="title_confirm_project_open">Taslamany açmagy tassykla</string>
+  <string name="msg_confirm_project_open">Soňky açylan taslamany açmazdan ozal soraň.</string>
+  <string name="title_default_shell">Terminalda ulgam gabygyny ulanyň</string>
+  <string name="msg_default_shell">Bellenen bolsa, terminalda \'/system/bin/sh\' ulanylar.</string>
+  <string name="title_general">Umumy</string>
+  <string name="title_tab_size">Tab ölçegi</string>
+  <string name="msg_tab_size">TAB üçin boşluk sanyny görkeziň</string>
+  <string name="msg_preferences">Sazlamalar</string>
+  <string name="pref_changelog">Üýtgeşmeler журналы</string>
+  <string name="msg_editor_font_size">Redaktoryň esasy şriftiniň ölçegini saýlaň:</string>
+  <string name="msg_clear_cache">Bu Gradle tarapyndan döredilen keş katalogy pozar. Ony pozsaňyz, Gradle zerur faýllary täzeden ýüklejekdigi sebäpli, indiki gurnama adatyndan bir az wagt alyp biler.\n\nKeşleri pozmak isleýändigiňize ynanýarsyňyzmy?</string>
+
+  <!-- Error Messages used while Logging -->
+
+  <!-- Layout preview and designer -->
+  <string name="title_preview_layout">Düzümi öňünden gözle</string>
+  <string name="title_viewaction_delete">Poz</string>
+  <string name="msg_yesno_def_title">Haýyş tassyklaň</string>
+  <string name="msg_yesno_def_message">Göz ýetirýärsiňizmi?</string>
+  <string name="msg_empty_ui_layout">Hiç hili görnüş goşulmady. Goşmak üçin basyň.</string>
+  <string name="msg_generate_xml_failed">XML kody döretmek başa barmady</string>
+  <string name="title_generating_xml">XML kody döredilýär</string>
+  <string name="msg_swipe_up">Gurnama çykdaýjysy, ýazgylar we ş.m. üçin ýokary süýrüň ýa-da basyň.</string>
+  <string name="msg_ide_crashed">ZeroStudio çökgünlige düşdi</string>
+  <string name="msg_report_crash">Aşakdaky yzlylyk bilen github-da mesele açyň:</string>
+  <string name="msg_crash_report_hint">Görnüşi kopiýalamak we mesele sahypasyny açmak üçin aşakdaky düwmä basyň.</string>
+  <string name="msg_copy_report_action">Kopiýala we habar ber</string>
+  <string name="title_translations">Terjimeler</string>
+  <string name="action_expand_selection">Saýlamany giňelt</string>
+  <string name="idepref_java_matchLower_title">Kiçi harplarda gabat gelmeleri tamamla</string>
+  <string name="title_common">Umumy</string>
+  <string name="idepref_editor_category_common" translatable="false">@string/title_common</string>
+  <string name="idepref_editor_category_java" translatable="false">Java</string>
+  <string name="title_files_unsaved">Saklanmadyk faýllar</string>
+  <string name="msg_files_unsaved">Käbir faýllar saklanmady. Ýapmazdan ozal olary saklamak isleýärsiňizmi? Saklanmadyk faýllar: \n%s</string>
+  <string name="idepref_editor_autoSave_title">Faýllary ýapmazdan ozal sakla</string>
+  <string name="idepref_editor_autoSave_summary">Faýllary ýapmazdan ozal saklaň. Bu EKSPERIMENTAL aýratynlyk. Faýllary özüňiz saklamagyňyza garaşylýar.</string>
+  <string name="idepref_java_matchLower_summary">Işledilen bolsa, kiçi ýa-da uly harplary ýazmak synp atlaryny, şeýle hem çäk agzalaryny teklip eder.</string>
+  <string name="idepref_editor_ligatures_title">Şrift ligaturalary</string>
+  <string name="idepref_editor_ligatures_summary">Şrift ligaturalaryny işlediň/öçüriň</string>
+  <string name="yes">Hawa</string>
+  <string name="no">Ýok</string>
+  <string name="msg_viewaction_add_attr">Goşmaça atribut goş</string>
+  <string name="msg_file_tree">Faýl agajy</string>
+  <string name="hint_attr_value">Atribut bahasy</string>
+  <string name="title_format_code">Kody formatla</string>
+  <string name="idepref_java_useGoogleStyle_title">Google Java Stili kod formatirlemesini ulanyň</string>
+  <string name="idepref_java_useGoogleStyle_summary">Java çeşme kody formatirlemek üçin Google Java Stili kod formatirleme konfigurasiýasyny ulanyň.</string>
+  <string name="idepref_visiblePassword_title">Görünýän parol baýdagy</string>
+  <string name="idepref_visiblePassword_summary">Redaktorda görünýän parol girizmek görnüşi baýdagy üçin ulanyň. Bu ýumşak klawiaturadan hiç hili teklibiň hödürlenmezligini üpjün edýär.</string>
+  <string name="previous">Öňki</string>
+  <string name="title_gradle_service_notification_ticker">Gradle gurnama hyzmaty başlady</string>
+  <string name="title_gradle_service_notification">Gradle gurnama hyzmaty</string>
+  <string name="title_cancel_build">Gurnamany ýatyr</string>
+  <string name="msg_initializing_project">Taslama başlanýar</string>
+  <string name="msg_project_initialized">Taslama başlady</string>
+  <string name="msg_project_initialization_failed">Taslamany başlatmak başa barmady</string>
+  <string name="msg_project_not_initialized">Taslama başlanmady</string>
+  <string name="msg_replacement">Çalyşma</string>
+  <string name="title_sync_project">Taslamany sinhronla</string>
+  <string name="wizard_save_location">Saklamak ýeri</string>
+  <string name="wizard_language">Taslama dili</string>
+  <string name="next">Indiki</string>
+  <string name="exit">Çyk</string>
+  <string name="idepref_title_customGradleInstallation">Adaty Gradle gurnamasy</string>
+  <string name="idepref_msg_customGradleInstallation">Gurnama üçin ulanylýan adaty Gradle gurnamasyny görkeziň. Bu gradle-wrapper.properties faýlynda görkezilen görnüşi ÝATYRÝAR.</string>
+  <string name="msg_gradle_installation_path">Gradle gurnamasynyň ýoly</string>
+  <string name="msg_gradle_installation_input_help">Gradle wrapper-ini ulanmak üçin boş goýuň.</string>
+
+  <string name="build_status_idle">Hiç hili gurnama dowam etmeýär</string>
+  <string name="build_status_in_progress">Gurnama dowam edýär…</string>
+  <string name="build_status_failed">Gurnama başa barmady. Has giňişleýin maglumat üçin gurnama çykdajysyna serediň.</string>
+  <string name="build_status_sucess">Gurnama üstünlikli tamamlandy</string>
+  <string name="msg_output_text_extraction_failed">Redaktordan teksti almak başa barmady</string>
+  <string name="err_invalid_data_by_intent">Intent nädogry maglumat gaýtardy</string>
+  <string name="msg_select_from_primary_storage">Esasy saklawdan papka saýlaň</string>
+  <string name="err_authority_not_allowed">\'%s\' ygtyýarlygyna rugsat berilmedi</string>
+  <string name="idepref_useIcu_title">ICU kitaphanasyny ulanyň</string>
+  <string name="idepref_useIcu_summary">Goşa basmak we uzak basmak bilen söz saýlamak üçin söz çäklerini yzyna almak üçin ICU kitaphanasyny ulanyň.</string>
+
+  <!--The text sorrounded with '@@' is spanned as clickable.-->
+  <!--There must be exactly two '@@' sorrounding the text that should be clickable.-->
+  <string name="msg_drawer_for_files">@@files@@ üçin çep çekmeje açyň.</string>
+  <string name="msg_swipe_for_output">@@build output@@ üçin ýokary süýrüň.</string>
+  <string name="idepref_editor_useSoftTabs_title">Ýumşak tab ulanyň</string>
+  <string name="idepref_editor_useSoftTabs_summary">Tab nyşanynyň (\\t) deregine boşluklary ulanmagy saýlaň.</string>
+  <string name="btn_donate">Bagyş ediň</string>
+  <string name="btn_docs">Resminamalar</string>
+  <string name="btn_close">Ýap</string>
+  <string name="msg_ignore_case">Registri äsgermezlik et</string>
+  <string name="msg_use_regex">REGEX ulanyň</string>
+  <string name="idepref_buildnrun_summary">Gradle gurnama sazlaň.</string>
+  <string name="configure">Sazla</string>
+  <string name="about">Programma barada</string>
+  <string name="idepref_github_summary">ZeroStudio açyk çeşme!</string>
+  <string name="idepref_channel_summary">Soňky täzelenmeler üçin abuna ýazylyň.</string>
+  <string name="idepref_group_summary">Aýratynlyklary, säwlikleri we gowulaşdyrmalary bu ýerde ara alyp maslahatlaşyň.</string>
+  <string name="idepref_changelog_summary">Bu wersiýada näme täze?</string>
+  <string name="idepref_about_summary">ZeroStudio hakda has giňişleýin.</string>
+  <string name="idepref_general_summary">Umumy IDE konfigurasiýasy.</string>
+  <string name="idepref_editor_summary">Redaktory sazlaň.</string>
+  <string name="xml" translatable="false">XML</string>
+  <string name="idepref_xml_trimFinalNewLine_title">Soňky täze setiri gyrkyň</string>
+  <string name="idepref_xml_insertFinalNewLine_title">Soňky täze setiri goşuň</string>
+  <string name="idepref_xml_trimFinalNewLine_summary">Faýlyň ahyrynda goşmaça boş setiri aýyryň</string>
+  <string name="idepref_xml_insertFinalNewLine_summary">Faýlyň ahyrynda boş täze setiri goşýar.</string>
+  <string name="idepref_xml_splitAttributes_title">Atributlary bölüň</string>
+  <string name="idepref_xml_splitAttributes_summary">Atributlary täze setirde formatlaň</string>
+  <string name="idepref_xml_joinCDataLines_title">CDATA setirlerini birleşdiriň</string>
+  <string name="idepref_xml_joinCDataLines_summary">CDATA-nyň içindäki mazmuny kadalaşdyryň.</string>
+  <string name="idepref_xml_joinComment_title">Teswir setirlerini birleşdiriň</string>
+  <string name="idepref_xml_joinComment_summary">Teswirleriň içindäki mazmuny kadalaşdyryň.</string>
+  <string name="idepref_xml_joinContent_title">Mazmun setirlerini birleşdiriň</string>
+  <string name="idepref_xml_joinContent_summary">Elementleriň içindäki mazmuny kadalaşdyryň.</string>
+  <string name="idepref_xml_spaceBeforeEmptyClose_title">Boş ýapyk tegden öň boşluk</string>
+  <string name="idepref_xml_spaceBeforeEmptyClose_summary">Özüni ýapýan tegiň soňky ýaýynyň öňünde boşluk goşuň.</string>
+  <string name="idepref_xml_preserveEmptyContent_title">Boş mazmuny saklaň</string>
+  <string name="idepref_xml_preserveEmptyContent_summary">Elementleriň içindäki boş mazmuny saklaň (boşluklar, täze setirler, tablar we ş.m.).</string>
+  <string name="idepref_xml_preserveAttrLineBreaks_title">Atribut setir arakesmelerini saklaň</string>
+  <string name="idepref_xml_preserveAttrLineBreaks_summary">Atributlaryň arasyndaky setir arakesmelerini saklaň.</string>
+  <string name="idepref_xml_closingBrackNewLine_title">Täze setirde ýapyjy ýaý</string>
+  <string name="idepref_xml_closingBrackNewLine_summary">Täze setirde ýapyjy ýaýy ýerleşdiriň.</string>
+  <string name="idepref_xml_trimTrailingWs_title">Soňky boşluky gyrkyň</string>
+  <string name="idepref_xml_trimTrailingWs_summary">Setirleriň ahyrynda goşmaça boşluklary aýyryň.</string>
+  <string name="idepref_maxLineWidth_title">Maksimum setir giňligi</string>
+  <string name="idepref_maxLineWidth_summary">Setiriň bolmaly iň köp nyşan sany.</string>
+  <string name="idepref_splitAttrIndentSize_title">Bölünen atributlaryň indent ölçegi</string>
+  <string name="idepref_splitAttrIndentSize_summary">Bölünen atributlar üçin indekslemek üçin boşluk sany.</string>
+  <string name="idepref_preservedNewLines_title">Saklanan täze setirler</string>
+  <string name="idepref_preservedNewLines_summary">Saklanmaly üznüksiz setir arakesmeleriniň iň köp sany.</string>
+  <string name="idepref_emptyElements_title">Boş elementleriň özüni alyp barşy</string>
+  <string name="idepref_emptyElements_summary">Boş elementler üçin formatirleme özüni alyp barşyny saýlaň.</string>
+  <string name="xml_formatting_options">XML formatirleme opsiýalary</string>
+  <string name="xml_formatting_options_summary">XML formatirleýjini sazlaň</string>
+  <string name="idepref_customFont_title">Adaty şrift ulanyň</string>
+  <string name="idepref_customFont_summary">Işledilen bolsa, \"/data/data/com.itsaky.ZeroStudio/files/home/.ZeroStudio/ui/font.ttf\" faýly redaktor şrifti hökmünde ulanylar.</string>
+  <string name="msg_installing_apk">APK gurnalýar...</string>
+  <string name="msg_action_open_application">Programmany açmak isleýärsiňizmi?</string>
+
+  <string name="title_gradle_service_notification_channel">ZeroStudio Gradle gurnama hyzmaty</string>
+  <string name="msg_hex_color_code">HEX reňk kody</string>
+  <string name="msg_color_picker_pick">Saýla</string>
+  <string name="msg_chmod_exec">Ýerine ýetiriji ygtyýarlyklaryny belleýär...</string>
+  <string name="msg_linking">%1$s-den %2$s-e baglanyşdyrylýar</string>
+  <string name="msg_extracting_hooks">Hook-kitaphanalary çykarylýar...</string>
+  <string name="msg_empty_package">Gaplama ady boş</string>
+  <string name="msg_package_is_not_valid">Gaplama ady dogry däl</string>
+  <string name="msg_package_is_to_long">Gaplama ady gaty uzyn</string>
+  <string name="msg_package_not_valid_char_1">\'_\' nyşany gaplama bölüminde birinji nyşan bolup bilmez</string>
+  <string name="msg_package_not_use_digit_first">San gaplama bölüminde birinji nyşan bolup bilmez</string>
+  <string name="msg_package_not_valid_char_2">"%1$s" nyşany Android programma gaplama atlarynda rugsat edilenok</string>
+  <string name="msg_package_mus_have_dot">Gaplamada azyndan bir \'.\' bölüji bolmaly</string>
+
+  <string name="action_import_classes">Synpy(lary) import et</string>
+  <string name="action_generate_setters_getters">Setterleri/getterleri döret</string>
+  <string name="action_add_throws">\'throws\' goş</string>
+  <string name="action_comment_line">Setiri teswirle</string>
+  <string name="action_create_missing_method">Ýetmeýän usuly döret</string>
+  <string name="action_convert_to_block">Bloka öwür</string>
+  <string name="action_generate_constructor">Gurluşdyryjy döret</string>
+  <string name="action_implement_abstract_methods">Abstrakt usullary amala aşyr</string>
+  <string name="action_remove_class">Synpy aýyr</string>
+  <string name="action_remove_method">Usuly aýyr</string>
+  <string name="action_remove_unused_throws">Ulanylmaýan \'throws\' aýyr</string>
+  <string name="action_suppress_unchecked_warning">\'unchecked\' duýduryşy basyp ýatyr</string>
+  <string name="action_uncomment_line">Setiri teswirden çykar</string>
+  <string name="action_convert_to_statement">Beýana öwür</string>
+  <string name="msg_select_fields">Meýdanlary saýlaň</string>
+  <string name="msg_no_fields_selected">Hiç hili meýdan saýlanmady</string>
+  <string name="msg_no_fields_found">Hiç hili meýdan tapylmady</string>
+  <string name="action_override_superclass_methods">Esasy synpyň usullaryny ýok et</string>
+  <string name="msg_no_methods_selected">Hiç hili usul saýlanmady</string>
+  <string name="msg_cannot_override_methods">Usullary ýok edip bolmaýar</string>
+  <string name="msg_cannot_generate_setters_getters">Setterleri we getterleri döredip bolmaýar</string>
+  <string name="msg_select_methods">Ýok etmek üçin usullary saýlaň</string>
+  <string name="msg_no_overridable_methods">Hiç hili ýok edilip bilinýän usul tapylmady</string>
+  <string name="action_goto_definition">Kesgitlemä geç</string>
+  <string name="action_find_references">Salgylanmalary tap</string>
+  <string name="action_generate_toString">toString()-i döret</string>
+  <string name="action_remove_unused_imports">Ulanylmaýan importlary aýyr</string>
+  <string name="action_organize_imports">Importlary tertiple</string>
+  <string name="msg_cannot_generate_toString">toString() amala aşyrmasyny döredip bolmaýar</string>
+  <string name="msg_toString_overridden">toString() eýýäm ýok edildi</string>
+  <string name="action_generate_missing_constructor">Ýetmeýän gurluşdyryjyny döret</string>
+  <string name="msg_cannot_generate_constructor">Gurluşdyryjy döredip bolmaýar</string>
+  <string name="msg_constructor_available">Şol bir parametr görnüşli gurluşdyryjy eýýäm bar</string>
+
+  <string name="replace">Çalyş</string>
+  <string name="replaceAll">Hemmesini çalyş</string>
+  <string name="title_run_tasks">Ýumuşlary işlet</string>
+  <string name="hint_search_tasks">Ýumuşlary gözle...</string>
+  <string name="msg_err_select_tasks">Işletmek üçin ýumuşlary saýlaň</string>
+  <string name="title_confirmation">Tassyk</string>
+  <string name="msg_tasks_to_run">Aşakdaky ýumuşlar yzygiderlikde işletiler. Tassyk etmek üçin \'Işlet\' düwmesine ýene bir gezek basyň.\n\n%1$s</string>
+  <string name="msg_loading_tasks">Ýumuşlar ýüklenýär...</string>
+  
+  <string name="ui_category_widgets" translatable="false">Widgetler</string>
+  <string name="ui_category_layouts" translatable="false">Düzümler</string>
+
+  <string name="widget_view" translatable="false">View</string>
+  <string name="widget_textview" translatable="false">TextView</string>
+  <string name="widget_button" translatable="false">Button</string>
+  <string name="widget_checkbox" translatable="false">CheckBox</string>
+  <string name="widget_checked_textview" translatable="false">CheckedTextView</string>
+  <string name="widget_edittext" translatable="false">EditText</string>
+  <string name="widget_image_button" translatable="false">ImageButton</string>
+  <string name="widget_image_view" translatable="false">ImageView</string>
+  <string name="widget_progressbar" translatable="false">ProgressBar</string>
+  <string name="widget_radio_button" translatable="false">RadioButton</string>
+  <string name="widget_radio_group" translatable="false">RadioGroup</string>
+  <string name="widget_seekbar" translatable="false">SeekBar</string>
+  <string name="widget_spinner" translatable="false">Spinner</string>
+  <string name="widget_auto_complete_textview" translatable="false">AutoCompleteTextView</string>
+  <string name="widget_multi_auto_complete_textview" translatable="false">MultiAutoCompleteTextView</string>
+  <string name="widget_listview" translatable="false">ListView</string>
+  <string name="widget_surfaceview" translatable="false">SurfaceView</string>
+  <string name="widget_switch" translatable="false">Switch</string>
+  <string name="widget_textureview" translatable="false">TextureView</string>
+  <string name="widget_togglebutton" translatable="false">ToggleButton</string>
+  <string name="widget_webview" translatable="false">WebView</string>
+  <string name="widget_frame_layout" translatable="false">FrameLayout</string>
+  <string name="widget_grid_layout" translatable="false">GridLayout</string>
+  <string name="widget_linear_layout_horz" translatable="false">LinearLayout (H)</string>
+  <string name="widget_linear_layout_vert" translatable="false">LinearLayout (V)</string>
+  <string name="widget_relative_layout" translatable="false">RelativeLayout</string>
+  <string name="widget_scrollview" translatable="false">ScrollView</string>
+  <string name="widget_horizontal_scrollview" translatable="false">HorizontalScrollView</string>
+  <string name="widget_text_clock" translatable="false">TextClock</string>
+  <string name="widget_digital_clock" translatable="false">DigitalClock</string>
+  <string name="widget_calendar_view" translatable="false">CalendarView</string>
+  <string name="widget_space" translatable="false">Space</string>
+  <string name="widget_number_picker" translatable="false">NumberPicker</string>
+  <string name="widget_chronometer" translatable="false">Chronometer</string>
+  <string name="widget_rating_bar" translatable="false">RatingBar</string>
+  <string name="widget_quick_contact_badge" translatable="false">QuickContactBadge</string>
+  <string name="widget_videoview" translatable="false">VideoView</string>
+  <string name="widget_analog_clock" translatable="false">AnalogClock</string>
+  <string name="widget_grid_view" translatable="false">GridView</string>
+  <string name="widget_viewanimator" translatable="false">ViewAnimator</string>
+  <string name="widget_viewswitcher" translatable="false">ViewSwitcher</string>
+  <string name="widget_textswitcher" translatable="false">TextSwitcher</string>
+  <string name="widget_imageswitcher" translatable="false">ImageSwitcher</string>
+  <string name="widget_viewflipper" translatable="false">ViewFlipper</string>
+
+  <!-- GIT -->
+  <string name="git_clone">Klone etmek</string>
+  <string name="git_clone_repo">Git ammaryny klonlamak</string>
+  <string name="git_clone_repo_url">Ammaryň URL adresi</string>
+  <string name="git_clone_in_progress">Ammar klonlanylýar</string>
+  <string name="git_clone_success">Git klonlamak üstünlikli boldy</string>
+  <string name="git_clone_failed">Git ammaryny klonlamak başartmady</string>
+  <string name="msg_select_attr">Aşakdaky sanawdan bir atribut saýlaň</string>
+  <string name="action_show_hierarchy">Düzüm iýerarhiýasyny görkez</string>
+  <string name="idepref_editor_colorScheme">Reňk shemasy</string>
+  <string name="idepref_editor_colorScheme_summary">Redaktorda ulanyljak reňk shemasyny saýlaň</string>
+  <string name="idepref_general_uiMode">UI Režimi</string>
+  <string name="idepref_general_uiMode_summary">IDE üçin UI režimi saýlаň</string>
+  <string name="uiMode_light">Ýagty</string>
+  <string name="uiMode_dark">Garaňky</string>
+  <string name="uiMode_system">Sistemany yzarla</string>
+  <string name="idepref_general_themeSelector_title">Tema</string>
+  <string name="idepref_general_themeSelector_summary">ZeroStudio üçin tema saýlaň (gaýtadan başlamagy talap edýär).</string>
+  <string name="idepref_general_projectConfig">Taslamanyň konfigurasiýasy</string>
+  <string name="msg_app_launch_failed">Işletmek başartmady. Ilki bilen programmany gurnaň.</string>
+  <string name="idepref_java_diagnosticEnabled_title">Diagnostika işledildi</string>
+  <string name="idepref_java_diagnosticsEnabled_summary">(EKSPERIMENTAL) Java çeşme faýllarynyň ýalňyşlyklar üçin seljerilmeli ýa-da seljerilmezligi.</string>
+  <string name="title_reload_color_schemes">Reňk shemalaryny täzeden ýükle</string>
+  <string name="msg_dir_picker_failed">Katalog saýlaýjyny işe girizmek başartmady: %1$s</string>
+  <string name="msg_tooling_server_unavailable">Gurallar API serweri elýeterli däl. Ýalňyşlyklar üçin gurnama çykyşyny we IDE žurnalyny barlap görüň.</string>
+  <string name="idepref_deleteEmptyLines_title">Yza basylanda boş setirleri poz</string>
+  <string name="idepref_deleteEmptyLines_summary">Redaktor bir yza basmak düwmesine basylanda boş setirleri pozmaly ýa-da pozmaly däl.</string>
+  <string name="idepref_deleteTabs_title">Yza basylanda tab poz</string>
+  <string name="idepref_deleteTabs_summary">Işledilende, redaktor yza basmak düwmesine basylanda tab giňligine deň bolan boşluklary pozar.</string>
+
+<string name="btn_sync">Sinhronlamak</string>
+<string name="btn_ignore_changes">Bu üýtgeşmeleri äsgermezlik et</string>
+<string name="title_fix_imports">Importlary düzediň</string>
+<string name="msg_no_unresolved_classes">Çözülmedik klas atlary tapylmady</string>
+<string name="title_class_chooser">Haýsy %1$s?</string>
+
+<string name="permlab_bind_logger_service">gözegçilik hyzmatyna birikdirmek</string>
+<string name="permdesc_bind_logger_service">Bu programma ZeroStudio-nyň log hyzmatyna birikmäge mümkinçilik berýär. Bu ygtyýarlyk ZeroStudio-nyň bu programmanyň ýazgylaryny okamak üçin zerurdyr.</string>
+<string name="wizard_module_name">Modulyň ady</string>
+<string name="wizard_module_type">Modulyň görnüşi</string>
+<string name="msg_invalid_module_name">Nädogry Gradle modul ady</string>
+<string name="msg_value_empty">Baha boş</string>
+<string name="msg_file_not_exist">Faýl ýok</string>
+<string name="msg_path_must_be_file">Faýla çenli ýol bolmaly</string>
+<string name="msg_classname_with_keywords">Klas adynda açar sözler bar</string>
+<string name="msg_path_must_be_dir">Direktoriýa çenli ýol bolmaly</string>
+<string name="msg_invalid_layout_name">Nädogry layout faýlynyň ady</string>
+<string name="msg_invalid_project_details">Nädogry taslama maglumatlary</string>
+<string name="msg_use_kts">Gradle gurnama faýllary üçin Kotlin Skriptini (.kts) ulanyň</string>
+<string name="title_privacy">Gizlinlik</string>
+<string name="title_androidide_statistics">ZeroStudio Statistika</string>
+<string name="msg_androidide_statistics">Anonim statistika berip, ZeroStudio-ny gowulaşdyrmaga kömek ediň. Biz diňe ulanyjy bazasynyň statistikasy üçin enjamyňyz barada esasy maglumatlary ýygnaýarys. Paýlaşylýan takyk maglumatlary saýlamalarda görüp bilersiňiz. Maglumatlaryňyz howpsuz we üçünji tarap hyzmatlary bilen paýlaşylmaýar. Saýlamalarda islendik wagt ýüz öwrüp bilersiňiz.</string>
+<string name="summary_anonymous_usage_stats">Anonim ulanyş statistikasy</string>
+<string name="idepref_stats_optIn_title">Statistika ýygnamak</string>
+<string name="idepref_stats_optIn_summary">Gurnama ölçeglerini we enjam statistikany ýygnamaga rugsat beriň (dolulygyna anonim).</string>
+<string name="title_unique_id">Üýtgeşik ID</string>
+<string name="title_device">Enjam</string>
+<string name="title_app_version">Programmanyň wersiýasy</string>
+<string name="title_country">Ýurt</string>
+<string name="title_cpu_arch">CPU Arhitekturasy</string>
+<string name="title_preview_data">Deslapky maglumatlar</string>
+<string name="title_android_version">Android wersiýasy</string>
+<string name="btn_opt_in">Goşulyň</string>
+<string name="title_developer_options">Düzüjiniň opsiýalary</string>
+<string name="idepref_devOptions_summary">ZeroStudio üçin synag / düzediş opsiýalary</string>
+<string name="idepref_group_debugging">Düzediş</string>
+<string name="idepref_devOptions_dumpLogs_title">Ýazgylary zyňyň</string>
+<string name="idepref_devOptions_dumpLogs_summary">ZeroStudio ýazgylaryny $HOME/.ZeroStudio/logs-a zyňyň</string>
+<string name="msg_emptyview_applogs">Programmanyň ýazgylaryny görmek üçin programmanyň düzediş görnüşini işlediň.</string>
+<string name="msg_logsender_disabled">LogSender öçürilen. Ony saýlamalarda işledip bilersiňiz.</string>
+<string name="msg_emptyview_idelogs">IDE-den ýazgylar şu ýerde görkezilýär.</string>
+<string name="msg_emptyview_diagnostics">Diagnostika netijelerini görkezmek üçin faýly açyň</string>
+<string name="msg_emptyview_buildoutput">Gurnama çykarylyşyny görmek üçin programmany gurýaň ýa-da ýumuşy işlediň.</string>
+<string name="msg_codeaction_failed">Kod hereketini ýerine ýetirmek başartmady</string>
+<string name="idepref_devOptions_enableLogsender_title">LogSender-i işlediň</string>
+<string name="idepref_devOptions_enableLogsender_summary">Öçürilende programmalardan ýazgylar ZeroStudio-da görkezilmez</string>
+<string name="title_build_variants">Gurnama wariantlary</string>
+<string name="title_apply">Ulan</string>
+<string name="title_discard">Ýatyryň</string>
+<string name="msg_build_variants_fetch_failed">Gurnama wariantlaryny almak başartmady</string>
+<string name="title_choose_application">Programmany saýlaň</string>
+<string name="err_selected_variant_not_found">Saýlanan gurnama warianty tapylmady</string>
+<string name="title_disconnect_log_senders">Log iberijilerini aýyryň</string>
+<string name="title_begin_long_select">Uzak saýlamany başlaň</string>
+<string name="idepref_editor_stickScroll_title">Ýapyşgak aýlaw</string>
+<string name="idepref_editor_stickyScroll_summary">Redaktory aýlanylanda häzirki gerimi ýokarda görkeziň.</string>
+<string name="idepref_launchAppAfterInstall_title">Gurnamadan soň programmany işlediň</string>
+<string name="idepref_launchAppAfterInstall_summary">Işledilse, IDE gurnalandan soň derrew (tassyklamasyz) programmany işleder.</string>
+<string name="title_run_options">Işletmek opsiýalary</string>
+<string name="err_cannot_determine_package">Programmany işledip bolmaýar. Paket adyny kesgitläp bolmady.</string>
+<string name="msg_launch_failure_no_app_module">Programmany işledip bolmaýar. Taslamada programma modullary tapylmady.</string>
+<string name="title_launch_app">Programmany işlediň</string>
+<string name="title_experiment_flavor">Synag</string>
+<string name="msg_experimental_flavor">ZeroStudio-nyň %1$s wariantyny %2$s enjamda ulanýarsyňyz. Bu konfigurasiýa işläp biler, ýöne öndürijiligiň peselmegine we howpsuzlyk ejizligine sebäp bolup biler. Mümkin boldugyça bu konfigurasiýany ulanmakdan gaça duruň.</string>
+<string name="idepref_editor_pinLineNumbers_title">Setir belgilerini berkidiň</string>
+<string name="idepref_editor_pinLineNumbers_summary">Redaktor üfüki aýlanylanda setir belgisi panelini berkidmeli ýa-da ýok.</string>
+<string name="theme_blue_wave">Gök Tolkun</string>
+<string name="theme_sunny_glow">Gün şöhlelenmesi</string>
+<string name="theme_material_you">Material You</string>
+<string name="idepref_general_localeSelector_title">Dil</string>
+<string name="idepref_general_localeSelector_summary">ZeroStudio üçin dil saýlaň.</string>
+<string name="locale_system_default">Ulgamyň Bellenen Dili</string>
+<string name="msg_project_dir_inaccessible">Taslama direktoriýasyna girip bolmaýar</string>
+<string name="msg_file_is_not_dir">Saýlanan faýl direktoriýa däl</string>
+<string name="msg_project_dir_doesnt_exist">Taslama direktoriýasy ýok</string>
+<string name="msg_files_being_saved">Faýly ýazdyrmak eýýäm dowam edýär!</string>
+<string name="title_install_tools">SDK Gurnama</string>
+<string name="subtitle_install_tools">Ösüş gurallaryny gurnaň</string>
+<string name="msg_install_tools">IDE-niň işlemegi üçin ösüş gurallaryny gurnamaly. Gutardy düwmäni basmak, gurallary gurnamak üçin terminaly açar. Gurnamak üçin şu ýerdäki görkezmelere eýeriň <![CDATA[ <a href="https://docs.ZeroStudio.com/tutorials/get-started.html">here</a>.<br/><br/>Ýa-da <a href="https://docs.ZeroStudio.com/">resminamalary</a> okaň]]>.</string>
+<string name="greeting_title">Hoş geldiňiz</string>
+<string name="greeting_subtitle">Öwreniň, guryň, işlediň. Hemmesi Android-de.</string>
+<string name="title_grant">Beriň</string>
+<string name="permission_title_storage">Ýat</string>
+<string name="permission_desc_storage">Taslama faýllaryna girmek üçin zerur.</string>
+<string name="permission_desc_install_packages">ZeroStudio bilen gurlan APK-lary gurnamaga rugsat beriň.</string>
+<string name="permission_title_install_packages">Paketleri gurnaň</string>
+<string name="onboarding_title_permissions">Ygtyýarlyklar</string>
+<string name="onboarding_subtitle_permissions">ZeroStudio aşakdaky ygtyýarlyklary talap edýär</string>
+<string name="msg_grant_permissions">Dowam etmek üçin ygtyýarlyklary beriň.</string>
+<string name="msg_no_internet">Internediňiz ýok ýaly. Internet birikmäňizi barlaň.</string>
+<string name="msg_connected_to_cellular">Duýduryş! Jöri maglumatlaryny ulanýarsyňyz.</string>
+<string name="msg_connected_to_metered_connection">Duýduryş! Tölegli toradasyňyz.</string>
+<string name="msg_disable_background_data_restriction">Gurnama şowsuzlyklarynyň öňüni almak üçin fon maglumatlaryny çäklendirmegi öçüriň.</string>
+<string name="msg_cannot_create_terminal_session">Terminal sessiýasyny döredip bolmady</string>
+<string name="action_auto_install">Awtomatiki gurnama</string>
+<string name="action_manual_install">Eller gurnamasy</string>
+<string name="hint_android_sdk_version">Android SDK wersiýasy</string>
+<string name="hin_jdk_version">JDK wersiýasy</string>
+<string name="action_install_git">Git-i gurnaň</string>
+<string name="action_install_openssh">OpenSSH-i gurnaň</string>
+<string name="msg_terminal_new_sessions_disabled">Sessiýany döredip bolmady. Täze sessiýalar öçürilen!</string>
+<string name="title_install_location_error">Gurnama ýeriniň ýalňyşlygy</string>
+<string name="title_unsupported_user">Goldanylmaýan ulanyjy</string>
+<string name="title_socials">Sosiallar</string>
+<string name="title_contributors">Goşant goşujylar</string>
+<string name="summary_contributors">Topluma goşant goşujylar.</string>
+<string name="title_github_contributors">GitHub Goşant Goşujylar</string>
+<string name="title_crowdin_translators">Crowdin Terjimeçiler</string>
+<string name="title_misc">Dürli</string>
+<string name="title_contribute">Goşant goşuň</string>
+<string name="summary_contribute">Bu diňe IDE däl, eýsem jemgyýet. ZeroStudio-a kod, pikir we höwes goşuň.</string>
+<string name="msg_app_unavailable_for_intent">Intent üçin programma elýeterli däl.</string>
+<string name="title_open_source_licenses">Açyk çeşme ygtyýarnamalary</string>
+<string name="summary_open_source_licenses">Açyk çeşme ygtyýarnamalaryny görüň.</string>
+<string name="idepref_jdkVersion_title">JDK wersiýasy</string>
+<string name="idepref_jdkVersion_summary">Häzirki saýlanan: %1$s (üýtgedilse täzeden başlamagy talap edýär)</string>
+
+</resources>

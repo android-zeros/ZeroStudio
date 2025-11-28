@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.AndroidIDE.Chip.Filter" parent="Widget.Material3.Chip.Filter">
+        <item name="chipIconVisible">true</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+    
+    <!-- 紧凑的文本输入框样式 -->
+    <style name="Widget.AndroidIDE.TextInputLayout.Dense" parent="Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxCornerRadiusTopStart">8dp</item>
+        <item name="boxCornerRadiusTopEnd">8dp</item>
+        <item name="boxCornerRadiusBottomStart">8dp</item>
+        <item name="boxCornerRadiusBottomEnd">8dp</item>
+    </style>
+</resources>
